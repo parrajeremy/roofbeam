@@ -69,6 +69,8 @@
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
     .card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; transition: transform .12s ease, border-color .12s ease; }
     .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+    a.card { color: inherit; text-decoration: none; }
+    a.card:hover { text-decoration: none; }
     .card h3 { font-size: 1.15rem; margin-bottom: 6px; }
     .card .tag { display: inline-block; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 3px 8px; border-radius: 999px; margin-bottom: 12px; }
     .card p { margin: 0; color: var(--muted); font-size: .95rem; }
@@ -133,14 +135,14 @@
       <section id="projects">
         <div class="sec-head">
           <h2>Projects</h2>
-          <span class="more placeholder">edit these cards / add your own</span>
+          <span class="more">things I'm playing with</span>
         </div>
         <div class="grid">
-          <article class="card">
-            <span class="tag">Toy</span>
-            <h3>Project one</h3>
-            <p>A one-line description of a little thing you built or are playing with. Link it out when it's ready.</p>
-          </article>
+          <a class="card" href="/toys/where-americans-resettle/">
+            <span class="tag">Toy · live</span>
+            <h3>Where Americans Resettle</h3>
+            <p>An interactive map of internal US migration — every line a place-pair where people moved. The premise: we're immigrants in our own country.</p>
+          </a>
           <article class="card">
             <span class="tag">Experiment</span>
             <h3>Project two</h3>
