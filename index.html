@@ -218,7 +218,7 @@
       const msg = hf.querySelector('.form-msg'), btn = hf.querySelector('button');
       if (hf.action.includes('YOUR_FORM_ID')) {
         msg.hidden = false; msg.className = 'form-msg err';
-        msg.textContent = 'Form not connected yet — add your Formspree endpoint.';
+        msg.textContent = "Thanks — the form isn't wired up just yet. Try again shortly.";
         return;
       }
       btn.disabled = true; const label = btn.textContent; btn.textContent = 'Sending…';
