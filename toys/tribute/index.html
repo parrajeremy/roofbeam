@@ -20,6 +20,7 @@
   --focus:#E6EDF2; --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 28px -12px rgba(0,0,0,.7);
 }}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:"Archivo",system-ui,-apple-system,sans-serif;font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
 .wrap{display:flex;flex-direction:column;height:100svh;min-height:520px}
 header{flex:0 0 auto;display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s2) var(--s3);padding:12px var(--s3) 11px;background:var(--panel);border-bottom:1px solid var(--panel-edge)}
@@ -88,14 +89,20 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border:2px solid var(
     <svg id="map" aria-label="Map of US federal tax by place"></svg>
     <div class="rail">
       <section class="card" id="controls">
-        <div class="field"><h2>Level</h2>
+        <div class="field"><h2>View</h2>
+          <div class="seg" id="segView" role="group" aria-label="View">
+            <button data-v="tribute" aria-pressed="true">Tribute paid</button>
+            <button data-v="balance" aria-pressed="false">Balance</button>
+          </div>
+        </div>
+        <div class="field" id="fLevel"><h2>Level</h2>
           <div class="seg" id="segLevel" role="group" aria-label="Geographic level">
             <button data-v="states" aria-pressed="true">States</button>
             <button data-v="counties" aria-pressed="false">Counties</button>
             <button data-v="zips" aria-pressed="false">ZIPs</button>
           </div>
         </div>
-        <div class="field"><h2>Measure</h2>
+        <div class="field" id="fMeasure"><h2>Measure</h2>
           <div class="seg" id="segMeasure" role="group" aria-label="Measure">
             <button data-v="rate" aria-pressed="true">Rate</button>
             <button data-v="total" aria-pressed="false">Total $</button>
@@ -111,9 +118,9 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border:2px solid var(
       <section class="card" id="readout" aria-live="polite">
         <div class="place"><span class="nm" id="rName">United States</span><span class="sub" id="rSub">All individual filers · 2022</span></div>
         <div class="grid3">
-          <div class="cell"><span class="k">Tribute</span><span class="n" id="v1">—</span></div>
-          <div class="cell"><span class="k">Eff. rate</span><span class="n" id="v2">—</span></div>
-          <div class="cell"><span class="k">Per return</span><span class="n" id="v3">—</span></div>
+          <div class="cell"><span class="k" id="k1">Tribute</span><span class="n" id="v1">—</span></div>
+          <div class="cell"><span class="k" id="k2">Eff. rate</span><span class="n" id="v2">—</span></div>
+          <div class="cell"><span class="k" id="k3">Per return</span><span class="n" id="v3">—</span></div>
         </div>
         <div class="tops"><h2 id="tTitle">Heaviest rates</h2><ol id="tList"></ol></div>
         <p class="hint" id="hint">Hover a place for its numbers. The list ranks by the current measure.</p>
@@ -130,8 +137,8 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;border:2px solid var(
 <script>
 (function(){
 const stage=document.getElementById('stage'), svg=d3.select('#map'), tip=document.getElementById('tip');
-let W=0,H=0, DATA=null, US=null, feats={}, borders=null, nation=null, proj=null, path=null;
-let level='states', measure='rate', thresh=3000;
+let W=0,H=0, DATA=null, US=null, BAL=null, feats={}, borders=null, nation=null, proj=null, path=null;
+let level='states', measure='rate', thresh=3000, view='tribute';
 const MINRET=2000; // floor for the choropleth color-scale domain + top list, so tiny-sample counties don't skew
 const SCHEME=['#f7fbf5','#dbeeda','#a9d9b4','#6bc2a0','#3aa2a0','#2b7391','#243f6e']; // seq, light->deep
 const NO='var(--flat)';
@@ -196,6 +203,9 @@ function showTip(html,x,y){tip.innerHTML=html;tip.style.left=x+'px';tip.style.to
 function hideTip(){tip.style.opacity=0;}
 
 function render(){
+  if(view==='balance'){ renderBalance(); return; }
+  document.getElementById('fLevel').hidden=false; document.getElementById('fMeasure').hidden=false;
+  document.getElementById('k1').textContent='Tribute'; document.getElementById('k2').textContent='Eff. rate'; document.getElementById('k3').textContent='Per return';
   const M=MEAS[measure]; document.getElementById('dekM').innerHTML='Color is '+M.dek+'.';
   document.getElementById('threshWrap').hidden = level!=='zips';
   const scale=scaleFor(); legend(scale); tops(scale); setReadout(null);
@@ -238,10 +248,44 @@ function render(){
   }
 }
 
+function renderBalance(){
+  document.getElementById('fLevel').hidden=true; document.getElementById('fMeasure').hidden=true; document.getElementById('threshWrap').hidden=true;
+  document.getElementById('dekM').innerHTML='Color is the <b>balance of payments</b> — green states get more back than they pay, red states pay more than they get. State level, per person.';
+  const S=BAL.states, vals=Object.values(S).map(s=>s.pc);
+  const color=d3.scaleDiverging([d3.min(vals),0,d3.max(vals)], d3.interpolateRdYlGn);
+  document.getElementById('k1').textContent='Net / person'; document.getElementById('k2').textContent='Total'; document.getElementById('k3').textContent='Status';
+  document.getElementById('lgTitle').textContent='Balance / person';
+  const box=document.getElementById('lrows'); box.innerHTML='';
+  [['Gets back more (＋)',color(d3.max(vals))],['About even',color(0)],['Pays in more (－)',color(d3.min(vals))]]
+    .forEach(([t,c])=>box.insertAdjacentHTML('beforeend',`<div class="lrow"><span class="sw" style="background:${c}"></span>${t}</div>`));
+  const items=Object.keys(S).map(fp=>({fp,name:(DATA.states[fp]?DATA.states[fp][0]:S[fp].ab),pc:S[fp].pc})).sort((a,b)=>b.pc-a.pc);
+  document.getElementById('tTitle').textContent='Net receivers → payers';
+  const ol=document.getElementById('tList'); ol.innerHTML='';
+  items.forEach(it=>ol.insertAdjacentHTML('beforeend',`<li><span class="pair">${it.name}</span><span class="qty" style="color:${color(it.pc)}">${it.pc>=0?'+':'−'}$${d3.format(',')(Math.abs(it.pc))}</span></li>`));
+  setBal(null);
+  svg.selectAll('*').remove();
+  const gBase=svg.append('g'), gLine=svg.append('g');
+  gLine.append('path').datum(nation).attr('class','natl').attr('d',path);
+  gBase.selectAll('path').data(feats.states.features).join('path').attr('class','feat').attr('d',path)
+    .attr('fill',f=>{const b=S[String(f.id).padStart(2,'0')]; return b?color(b.pc):NO;})
+    .on('mousemove',function(e,f){const fp=String(f.id).padStart(2,'0'),b=S[fp];d3.select(this).classed('hoverd',true);
+      if(b){const name=DATA.states[fp]?DATA.states[fp][0]:b.ab; showTip(`${name}<span class="t2">${b.pc>=0?'+':'−'}$${d3.format(',')(Math.abs(b.pc))}/person · ${b.pc>=0?'net receiver':'net payer'}</span>`,e.offsetX,e.offsetY); setBal({name,b});}
+      else showTip('no data',e.offsetX,e.offsetY);})
+    .on('mouseout',function(){d3.select(this).classed('hoverd',false);hideTip();setBal(null);});
+  gLine.append('path').datum(borders.states).attr('class','bord').attr('d',path);
+}
+function setBal(x){
+  const el=id=>document.getElementById(id);
+  if(!x){el('rName').textContent='Balance of payments';el('rSub').textContent='Federal $ back, minus tax in · per person';el('v1').textContent='—';el('v2').textContent='—';el('v3').textContent='—';return;}
+  const b=x.b; el('rName').textContent=x.name; el('rSub').textContent=b.pc>=0?'Gets back more than it pays':'Pays more than it gets';
+  el('v1').textContent=(b.pc>=0?'+$':'−$')+d3.format(',')(Math.abs(b.pc));
+  el('v2').textContent=(b.bop_m>=0?'+$':'−$')+(Math.abs(b.bop_m)/1000).toFixed(1)+'B';
+  el('v3').textContent=b.pc>=0?'Receiver':'Payer';
+}
 function project(){ proj=d3.geoAlbersUsa().fitSize([W,H],nation); path=d3.geoPath(proj); }
 
-Promise.all([d3.json('tribute.json'),d3.json('us.json')]).then(([data,us])=>{
-  DATA=data; US=us;
+Promise.all([d3.json('tribute.json'),d3.json('us.json'),d3.json('balance.json')]).then(([data,us,bal])=>{
+  DATA=data; US=us; BAL=bal;
   feats.states=topojson.feature(us,us.objects.states);
   feats.counties=topojson.feature(us,us.objects.counties);
   nation=topojson.feature(us,us.objects.nation);
@@ -250,6 +294,7 @@ Promise.all([d3.json('tribute.json'),d3.json('us.json')]).then(([data,us])=>{
   window.addEventListener('resize',()=>{size();project();render();});
   document.querySelectorAll('#segLevel button').forEach(b=>b.onclick=()=>{level=b.dataset.v;seg('#segLevel',b);render();});
   document.querySelectorAll('#segMeasure button').forEach(b=>b.onclick=()=>{measure=b.dataset.v;seg('#segMeasure',b);render();});
+  document.querySelectorAll('#segView button').forEach(b=>b.onclick=()=>{view=b.dataset.v;seg('#segView',b);render();});
   document.getElementById('thresh').oninput=e=>{thresh=+e.target.value;render();};
 }).catch(err=>{document.getElementById('hint').textContent='Failed to load data: '+err;});
 
