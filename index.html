@@ -106,6 +106,9 @@
     .form-msg { margin: 14px 0 0; font-size: .92rem; font-weight: 500; }
     .form-msg.ok { color: var(--accent); }
     .form-msg.err { color: #c0392b; }
+    .vh { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden;
+          clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
     @media (max-width: 520px) { .frow { flex-direction: column; } }
   </style>
 </head>
@@ -192,13 +195,20 @@
         <p style="color:var(--muted);max-width:58ch;margin:0 0 20px">Tell me who you are and what draws you to what I'm building — I read every one. If you'd like, I'll keep you posted as things take shape. No spam, ever.</p>
         <form id="hello-form" class="hello-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="frow">
-            <input name="name" type="text" placeholder="Your name" required />
-            <input name="email" type="email" placeholder="Email" required />
+            <label class="vh" for="hf-name">Your name</label>
+            <input id="hf-name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
+            <label class="vh" for="hf-email">Email</label>
+            <input id="hf-email" name="email" type="email" placeholder="Email" autocomplete="email" required />
           </div>
-          <textarea name="interest" rows="3" placeholder="What are you interested in, or working on?"></textarea>
+          <label class="vh" for="hf-interest">What are you interested in, or working on?</label>
+          <textarea id="hf-interest" name="interest" rows="3" placeholder="What are you interested in, or working on?"></textarea>
+          <div class="hp" aria-hidden="true">
+            <label for="hf-company">Leave this field empty</label>
+            <input id="hf-company" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+          </div>
           <label class="opt"><input type="checkbox" name="keep_posted" value="yes" /> <span>Keep me posted on what you're building</span></label>
           <button type="submit">Send</button>
-          <p class="form-msg" hidden></p>
+          <p class="form-msg" role="status" aria-live="polite" tabindex="-1" hidden></p>
         </form>
       </section>
     </div>
@@ -213,23 +223,33 @@
   <script>
     document.getElementById('yr').textContent = new Date().getFullYear();
     const hf = document.getElementById('hello-form');
+    const hfLoaded = Date.now();
     if (hf) hf.addEventListener('submit', async (e) => {
       e.preventDefault();
       const msg = hf.querySelector('.form-msg'), btn = hf.querySelector('button');
+      const say = (kind, text) => {
+        msg.hidden = false; msg.className = 'form-msg ' + kind;
+        msg.textContent = (kind === 'ok' ? '\u2713 ' : '\u26a0 ') + text;
+        msg.focus();
+      };
+      // Honeypot: only a bot fills a field a human never sees.
+      if (hf.querySelector('[name=_gotcha]').value) return;
+      // Time trap: nobody reads and answers this in under three seconds.
+      if (Date.now() - hfLoaded < 3000) {
+        say('err', 'That was quick — give it another try.');
+        return;
+      }
       if (hf.action.includes('YOUR_FORM_ID')) {
-        msg.hidden = false; msg.className = 'form-msg err';
-        msg.textContent = "Thanks — the form isn't wired up just yet. Try again shortly.";
+        say('err', "Thanks — the form isn't wired up just yet. Try again shortly.");
         return;
       }
       btn.disabled = true; const label = btn.textContent; btn.textContent = 'Sending…';
       try {
         const r = await fetch(hf.action, { method: 'POST', body: new FormData(hf), headers: { Accept: 'application/json' } });
         if (!r.ok) throw new Error();
-        hf.reset(); msg.hidden = false; msg.className = 'form-msg ok';
-        msg.textContent = "Thanks — I'll be in touch.";
+        hf.reset(); say('ok', "Thanks — I'll be in touch.");
       } catch {
-        msg.hidden = false; msg.className = 'form-msg err';
-        msg.textContent = 'Something went off — try again, or email me directly.';
+        say('err', 'Something went off — try again, or email me directly.');
       }
       btn.disabled = false; btn.textContent = label;
     });
