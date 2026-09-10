@@ -1,0 +1,294 @@
+#!/usr/bin/env python3
+"""Share metadata for the workshop — generated from one record, so it cannot drift.
+
+ADR-0001 §2: a toy is a stable slug + manifest, and "everything else generates
+from that one record so metadata cannot drift." This is that generator.
+
+    tools/share.py cards    # render toys/<slug>/og.png from each manifest
+    tools/share.py head     # print the canonical <head> block for each manifest
+    tools/share.py verify   # fail if a page's tags disagree with its manifest
+
+Deliberately NOT a build step that rewrites source HTML: the toys are
+hand-authored and self-contained (ADR-0001 §1), so the head is placed by hand
+once and `verify` is what keeps it honest afterwards. Run verify before a push.
+
+Card rendering goes through ImageMagick's built-in SVG renderer, which handles
+rects/lines/left-aligned text and nothing fancier. Keep the SVG dumb.
+"""
+
+import html
+import json
+import pathlib
+import re
+import subprocess
+import sys
+
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+ORIGIN = "https://roofbeam.net"
+
+# The site palette, from index.html :root — light mode only. A share card is
+# rendered once and served to every reader, so it cannot follow a colour scheme.
+PAPER = "#f6f3ec"
+INK = "#23201b"
+MUTED = "#6b6459"
+LINE = "#e2dccf"
+ACCENT = "#b4531f"
+
+SERIF = "Georgia"
+SANS = "Helvetica"
+
+CARD_W, CARD_H = 1200, 630
+
+
+def manifests():
+    """Every manifest in the repo: the front door first, then each toy."""
+    out = [(ROOT / "site.json", ROOT / "index.html")]
+    for m in sorted(ROOT.glob("toys/*/toy.json")):
+        out.append((m, m.parent / "index.html"))
+    return [(json.loads(m.read_text()), m, page) for m, page in out]
+
+
+def canonical(toy):
+    slug = toy["slug"]
+    return f"{ORIGIN}/" if not slug else f"{ORIGIN}/toys/{slug}/"
+
+
+def image_url(toy):
+    slug = toy["slug"]
+    return f"{ORIGIN}/og.png" if not slug else f"{ORIGIN}/toys/{slug}/og.png"
+
+
+def page_title(toy):
+    """The <head> <title>, and therefore og:title — they must not disagree."""
+    return toy.get("page_title", toy["title"])
+
+
+# ---------------------------------------------------------------- the card
+
+def wrap(text, size, family, max_px):
+    """Greedy wrap using a per-family average advance width. Approximate by
+    design — the layout leaves slack rather than measuring glyphs."""
+    per_char = size * (0.50 if family == SERIF else 0.53)
+    budget = max(1, int(max_px / per_char))
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        trial = f"{cur} {w}".strip()
+        if len(trial) <= budget or not cur:
+            cur = trial
+        else:
+            lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def card_svg(toy):
+    pad = 80
+    text_w = CARD_W - pad * 2
+
+    kicker = "roofbeam.net" if not toy["slug"] else "roofbeam.net  ·  a toy"
+
+    title_size = 84 if len(toy["title"]) <= 22 else 66
+    title_lines = wrap(toy["title"], title_size, SERIF, text_w)
+    q_lines = wrap(toy["card_question"], 34, SANS, text_w)
+    src_lines = wrap(toy["source"], 24, SANS, text_w)
+
+    parts = [
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="{CARD_W}" height="{CARD_H}">',
+        f'<rect width="{CARD_W}" height="{CARD_H}" fill="{PAPER}"/>',
+        # the roof beam
+        f'<rect width="{CARD_W}" height="14" fill="{ACCENT}"/>',
+        f'<text x="{pad}" y="132" font-family="{SANS}" font-size="26" '
+        f'fill="{ACCENT}">{html.escape(kicker)}</text>',
+    ]
+
+    rule_y = CARD_H - 128
+
+    # Centre the title+question block between the kicker and the rule, so a
+    # one-line title and a three-line one both sit balanced.
+    title_lh, q_lh, gap = int(title_size * 1.18), 46, 44
+    block_h = len(title_lines) * title_lh + gap + len(q_lines) * q_lh
+    top = 168 + max(0, (rule_y - 40 - 168 - block_h) // 2)
+
+    for i, ln in enumerate(title_lines):
+        parts.append(
+            f'<text x="{pad}" y="{top + i * title_lh + title_size}" '
+            f'font-family="{SERIF}" font-size="{title_size}" '
+            f'font-weight="bold" fill="{INK}">{html.escape(ln)}</text>'
+        )
+
+    q_top = top + len(title_lines) * title_lh + gap
+    for i, ln in enumerate(q_lines):
+        parts.append(
+            f'<text x="{pad}" y="{q_top + i * q_lh + 34}" font-family="{SANS}" '
+            f'font-size="34" fill="{MUTED}">{html.escape(ln)}</text>'
+        )
+
+    parts.append(
+        f'<rect x="{pad}" y="{rule_y}" width="{text_w}" height="1" fill="{LINE}"/>'
+    )
+    parts.append(
+        f'<text x="{pad}" y="{rule_y + 46}" font-family="{SERIF}" font-size="30" '
+        f'fill="{INK}">Jeremy Parra</text>'
+    )
+    sy = rule_y + 82
+    for ln in src_lines:
+        parts.append(
+            f'<text x="{pad}" y="{sy}" font-family="{SANS}" font-size="24" '
+            f'fill="{MUTED}">{html.escape(ln)}</text>'
+        )
+        sy += 30
+
+    parts.append("</svg>")
+    return "\n".join(parts)
+
+
+def render_cards():
+    for toy, mpath, _ in manifests():
+        out = (ROOT / "og.png") if not toy["slug"] else (mpath.parent / "og.png")
+        svg = card_svg(toy)
+        subprocess.run(
+            ["magick", "svg:-", "-strip", f"png:{out}"],
+            input=svg.encode(), check=True,
+        )
+        print(f"  {out.relative_to(ROOT)}  ({out.stat().st_size // 1024} KB)")
+
+
+# ---------------------------------------------------------------- the head
+
+def head_block(toy):
+    url, img, title = canonical(toy), image_url(toy), page_title(toy)
+    desc = toy["tagline"]
+    kind = "WebSite" if not toy["slug"] else "CreativeWork"
+
+    ld = {
+        "@context": "https://schema.org",
+        "@type": kind,
+        "name": toy["title"],
+        "headline": toy["title"],
+        "description": desc,
+        "url": url,
+        "image": img,
+        "inLanguage": "en",
+        "author": {
+            "@type": "Person",
+            "name": "Jeremy Parra",
+            "url": f"{ORIGIN}/",
+        },
+        "publisher": {"@type": "Organization", "name": "Roofbeam", "url": f"{ORIGIN}/"},
+    }
+    if toy.get("created"):
+        ld["dateCreated"] = toy["created"]
+    if kind == "CreativeWork":
+        ld["isPartOf"] = {"@type": "WebSite", "name": "Roofbeam", "url": f"{ORIGIN}/"}
+        ld["license"] = "https://creativecommons.org/licenses/by/4.0/"
+    if not toy["slug"]:
+        ld.pop("headline", None)
+
+    alt = (f"{toy['title']} — a toy on roofbeam.net" if toy["slug"]
+           else "Roofbeam — a workshop in the open")
+    e = html.escape
+    return f"""<link rel="canonical" href="{url}">
+<meta property="og:type" content="{'website' if not toy['slug'] else 'article'}">
+<meta property="og:site_name" content="Roofbeam">
+<meta property="og:title" content="{e(title)}">
+<meta property="og:description" content="{e(desc)}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{img}">
+<meta property="og:image:width" content="{CARD_W}">
+<meta property="og:image:height" content="{CARD_H}">
+<meta property="og:image:alt" content="{e(alt)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{e(title)}">
+<meta name="twitter:description" content="{e(desc)}">
+<meta name="twitter:image" content="{img}">
+<meta name="author" content="Jeremy Parra">
+<script type="application/ld+json">
+{json.dumps(ld, indent=2, ensure_ascii=False)}
+</script>"""
+
+
+def print_heads():
+    for toy, mpath, _ in manifests():
+        print(f"\n{'=' * 70}\n{mpath.relative_to(ROOT)}\n{'=' * 70}")
+        print(head_block(toy))
+
+
+# ---------------------------------------------------------------- verify
+
+def attr(src, pattern):
+    m = re.search(pattern, src, re.I | re.S)
+    return html.unescape(m.group(1)).strip() if m else None
+
+
+def verify():
+    problems = []
+    for toy, mpath, page in manifests():
+        rel = page.relative_to(ROOT)
+        if not page.exists():
+            problems.append(f"{rel}: page missing")
+            continue
+        src = page.read_text()
+        head = src.split("</head>", 1)[0]
+
+        img = image_url(toy)
+        expect = {
+            "canonical": (canonical(toy), r'<link[^>]+rel=["\']?canonical["\']?[^>]*href=["\']([^"\']+)'),
+            "og:title": (page_title(toy), r'property=["\']og:title["\'][^>]*content=["\']([^"\']*)'),
+            "og:description": (toy["tagline"], r'property=["\']og:description["\'][^>]*content=["\']([^"\']*)'),
+            "og:url": (canonical(toy), r'property=["\']og:url["\'][^>]*content=["\']([^"\']+)'),
+            "og:image": (img, r'property=["\']og:image["\'][^>]*content=["\']([^"\']+)'),
+            "twitter:card": ("summary_large_image", r'name=["\']twitter:card["\'][^>]*content=["\']([^"\']+)'),
+            "twitter:image": (img, r'name=["\']twitter:image["\'][^>]*content=["\']([^"\']+)'),
+        }
+        for label, (want, pat) in expect.items():
+            got = attr(head, pat)
+            if got is None:
+                problems.append(f"{rel}: {label} missing")
+            elif got != want:
+                problems.append(f"{rel}: {label}\n      manifest: {want}\n      page:     {got}")
+
+        # <title> and the JSON-LD must be inside the head, not merely present:
+        # a <title> after <body> is what the resettle toy shipped for three days.
+        if "<title>" not in head:
+            problems.append(f"{rel}: <title> is not inside <head>")
+        if 'application/ld+json' not in head:
+            problems.append(f"{rel}: JSON-LD missing from <head>")
+        else:
+            raw = re.search(r'application/ld\+json["\']?\s*>(.*?)</script>', head, re.S)
+            try:
+                ld = json.loads(raw.group(1))
+                if ld.get("url") != canonical(toy):
+                    problems.append(f"{rel}: JSON-LD url {ld.get('url')} != {canonical(toy)}")
+                if ld.get("image") != img:
+                    problems.append(f"{rel}: JSON-LD image {ld.get('image')} != {img}")
+            except Exception as exc:
+                problems.append(f"{rel}: JSON-LD does not parse ({exc})")
+
+        card = (ROOT / "og.png") if not toy["slug"] else (page.parent / "og.png")
+        if not card.exists():
+            problems.append(f"{rel}: {card.relative_to(ROOT)} not rendered")
+
+        if not re.search(r'<html[^>]*\blang=', src, re.I):
+            problems.append(f"{rel}: <html> has no lang attribute")
+
+    if problems:
+        print("FAIL — share metadata disagrees with the manifests:\n")
+        for p in problems:
+            print(f"  · {p}")
+        return 1
+    print(f"OK — {len(manifests())} pages agree with their manifests.")
+    return 0
+
+
+if __name__ == "__main__":
+    cmd = sys.argv[1] if len(sys.argv) > 1 else "verify"
+    if cmd == "cards":
+        render_cards()
+    elif cmd == "head":
+        print_heads()
+    elif cmd == "verify":
+        sys.exit(verify())
+    else:
+        sys.exit(__doc__)
