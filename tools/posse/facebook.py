@@ -1,5 +1,19 @@
 #!/usr/bin/env python3
-"""POSSE to a Facebook Page — publish here, syndicate out, pull responses home.
+"""POSSE to a Facebook PAGE — publish here, syndicate out, pull responses home.
+
+⚠️ THIS IS NOT THE CURRENT PATH. Read this before assuming Facebook is wired.
+Jeremy's chosen surface is his PRIVATE PROFILE, and none of this reaches it:
+personal-profile publishing died with publish_actions in 2018, the Groups API
+was retired in April 2024, and a DYI export omits other people's comments on
+his posts by design ("they belong to the people who wrote them"). For the
+private profile, Facebook is DISTRIBUTION ONLY, posted by hand, with the
+conversation invited home to roofbeam.net. See ADR-0002 § What the platforms
+actually permit → CORRECTION 2026-09-10.
+
+This module remains correct and tested for a PUBLIC Roofbeam Page, should one
+ever be wanted — a Page is a world-instrument surface, not a circle one — and
+Threads and Instagram ride the same Meta auth. It is kept for that, not
+because Facebook is currently syndicating anything.
 
 ADR-0002 step 3, Facebook edition. The canonical post lives on roofbeam.net;
 Facebook gets a copy that points home.

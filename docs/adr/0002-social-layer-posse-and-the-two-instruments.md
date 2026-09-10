@@ -1,6 +1,6 @@
 # ADR-0002 — The social layer: POSSE, two instruments, and a prediction log instead of KPIs
 
-- **Status:** proposed — the shape is settled. Of the three ⛔ items, **#3 (sequence) closed 2026-09-10: Facebook first.** #1 (consent posture) and #2 (what JENI may optimise) remain Jeremy's to close before anything ingests.
+- **Status:** proposed. **#3 (sequence) closed 2026-09-10** — Facebook first, then narrowed by the platform correction below to *Facebook for distribution, roofbeam.net for response*. **#1 (consent posture) is now moot for Facebook** (nothing is importable) and applies only to genuinely importable sources; for **native** comments there is a moment of agreement, so it does not block them. **#2 (what JENI may optimise) is still open.**
 - **Proposed:** 2026-09-10
 - **Extends:** [ADR-0001](0001-workshop-architecture.md) — same models, same governing rule. **Not a new system.**
 - **Vault reasoning:** `Builder Vault/Efforts/Roofbeam/areas/Workshop Architecture.md` (§ *The social layer*, § *The 2026-09-09 22:52 memo*)
@@ -87,7 +87,19 @@ Person             + relation (circle|world)        # ← the fork from §2
 | **LinkedIn** | ✅ personal (`w_member_social`) | ❌ partner-gated | ❌ no API at all |
 | **X** | ✅ | 💰 paid tiers | ❌ |
 
-**Browser automation is rejected** for LinkedIn / Facebook / Instagram: it breaches ToS and gets accounts restricted, and LinkedIn detects and litigates. Not worth Jeremy's real accounts. The sanctioned path for his own data on closed platforms is **periodic export** (LinkedIn archive, Facebook DYI, Instagram export) — complete, legitimate, not real-time, and adequate for a cadence measured in weeks.
+**Browser automation is rejected** for LinkedIn / Facebook / Instagram: it breaches ToS and gets accounts restricted, and LinkedIn detects and litigates. Not worth Jeremy's real accounts.
+
+> ### ⚠️ CORRECTION 2026-09-10 — the export path does NOT carry responses
+>
+> This ADR said the sanctioned path for closed platforms is **periodic export**, "complete, legitimate, not real-time, and adequate for a cadence measured in weeks." **The first half is right and the last clause is wrong**, and the error matters because the whole point of the exercise is bringing responses home.
+>
+> A Facebook DYI export contains **his posts and the comments *he* wrote**. It does **not** contain comments *other people* wrote on his posts. Meta's stated reason is that those comments *belong to the people who wrote them*.
+>
+> So for Jeremy's **private profile** there is **no legitimate response path at all**: personal-profile publishing died with `publish_actions` in 2018 and has not returned; the **Groups API was retired outright in April 2024** and removed from every Graph version, so a private group is not a way around it; and export omits exactly the half that matters. Browser automation is the only remaining mechanism and this ADR already rejects it — doubly so on a personal account.
+>
+> **Note what Facebook's reason actually is.** *"They belong to the people who wrote them"* is ⛔ #1's own argument, enforced at the platform level. Facebook is not being obstructive here; it is taking the position this ADR was asking Jeremy to consider. **That makes ⛔ #1 moot for Facebook** — there is nothing to decide a posture about, because there is nothing importable.
+>
+> **This is § The finding, in its sharpest form.** Not "Facebook is slower to wire up" — the earlier objection, which was wrong on the cost — but *Facebook structurally will not return the conversation from the one surface where his circle actually is*, and it will not do so on privacy grounds he would endorse.
 
 ### ⭐ The finding
 
@@ -98,10 +110,10 @@ Person             + relation (circle|world)        # ← the fork from §2
 *Revised 2026-09-10 after ⛔ #3 closed Facebook-first and the review-cycle objection was found to be wrong.*
 
 1. ✅ **OG / Twitter cards / canonical / JSON-LD on the toys.** Blocked everything else — ADR-0001's known gap. **Done 2026-09-10** (`7424542`): generated from a per-toy manifest by `tools/share.py`, with a `verify` mode that fails on drift.
-2. **Facebook Page + a Meta app in Development mode.** Outbound POSSE only — publishing Jeremy's own words needs no consent decision at all. `tools/posse/facebook.py`. Needs no App Review, no Business Verification, **no EIN**.
-3. **Pull responses home by polling** — ⛔ **blocked on #1 (consent posture)**, and the tool refuses to run until it is set. Not blocked on anything technical.
-4. Three model additions + a post object with a canonical URL, once the shape has been learned from a real surface rather than guessed at.
-5. **Bluesky + Mastodon** — still worth adding, and still the only platforms that give the conversation back. No longer sequenced first: the cost gap that justified that collapsed.
+2. ⭐ **Native comments on roofbeam.net — the circle instrument's real home.** *Revised 2026-09-10 (see the correction above): the circle cannot be instrumented on Facebook at all.* It can be instrumented here. On his own site the moment of agreement **exists**, so `Consent.text_shown` is satisfiable and ⛔ #1 does not block native comments; he owns the corpus (ADR-0001 §3); and `Person.relation = circle` can be set truthfully. No platform can withhold it.
+3. **Facebook = distribution only, by hand.** He posts the link to his own profile himself. No API, no Page, no token, no ToS exposure — and the conversation is invited home by the link, which is what POSSE has always meant. The response half happens at (2), not on Facebook.
+4. Three model additions + a post object with a canonical URL.
+5. **Bluesky + Mastodon** — the only platforms that give the conversation back, so they remain the route to a *wired* loop and to the **world** instrument. A public Roofbeam Page (`tools/posse/facebook.py`, already built) is an option here too, on the same footing: a world surface, not a circle one.
 6. Threads + Instagram — same Meta auth as (2).
 7. LinkedIn — post-out only. X — only if there is a reason to pay.
 
