@@ -1,0 +1,2879 @@
+{
+ "meta": {
+  "method": "deep research, every edge cited",
+  "confidence_levels": [
+   "documented",
+   "consensus",
+   "contested",
+   "inferred-oral"
+  ],
+  "generated": "2026-09-13",
+  "note": "Authored augmentation branch for the Tree of Human Thought. New nodes carry tradition/region; edges may connect to existing Wikidata-spine nodes (referenced by real Q-id) as well as to these new nodes. Only genuinely-absent figures are emitted as nodes to avoid duplicating the spine."
+ },
+ "nodes": {
+  "Q80612": {
+   "label": "Anaximenes of Miletus",
+   "year": -586,
+   "clade": "philosophy",
+   "tradition": "Greek / Milesian",
+   "region": "Mediterranean",
+   "source": "Britannica, 'Anaximenes of Miletus'",
+   "note": ""
+  },
+  "Q179785": {
+   "label": "Gorgias",
+   "year": -483,
+   "clade": "philosophy",
+   "tradition": "Greek / Sophist",
+   "region": "Mediterranean",
+   "source": "Britannica, 'Gorgias'",
+   "note": ""
+  },
+  "Q310173": {
+   "label": "Ammonius Saccas",
+   "year": 175,
+   "clade": "philosophy",
+   "tradition": "Greek / Neoplatonist",
+   "region": "Mediterranean",
+   "source": "Britannica, 'Ammonius Saccas'",
+   "note": ""
+  },
+  "Q735601": {
+   "label": "Junayd of Baghdad",
+   "year": 830,
+   "clade": "religion",
+   "tradition": "Islamic / Sufi",
+   "region": "Middle East",
+   "source": "Britannica, 'Junayd of Baghdad'",
+   "note": ""
+  },
+  "Q256506": {
+   "label": "Rabia al-Adawiyya",
+   "year": 714,
+   "clade": "religion",
+   "tradition": "Islamic / Sufi",
+   "region": "Middle East",
+   "source": "Britannica, 'Rabiah al-Adawiyyah'",
+   "note": ""
+  },
+  "Q4295": {
+   "label": "Peter Abelard",
+   "year": 1079,
+   "clade": "philosophy",
+   "tradition": "Latin Christian / Scholastic",
+   "region": "Europe",
+   "source": "Britannica, 'Peter Abelard'",
+   "note": ""
+  },
+  "Q312816": {
+   "label": "Pseudo-Dionysius the Areopagite",
+   "year": 500,
+   "clade": "religion",
+   "tradition": "Christian Neoplatonist",
+   "region": "Mediterranean",
+   "source": "SEP, 'Pseudo-Dionysius the Areopagite'",
+   "note": ""
+  },
+  "Q299200": {
+   "label": "Judah Halevi",
+   "year": 1075,
+   "clade": "religion",
+   "tradition": "Jewish / anti-rationalist",
+   "region": "Iberia",
+   "source": "Britannica, 'Judah ha-Levi'",
+   "note": ""
+  },
+  "Q239355": {
+   "label": "Solomon ibn Gabirol",
+   "year": 1021,
+   "clade": "philosophy",
+   "tradition": "Jewish / Neoplatonist",
+   "region": "Iberia",
+   "source": "Britannica, 'Solomon ben Yehuda ibn Gabirol'",
+   "note": ""
+  },
+  "Q353633": {
+   "label": "Gersonides",
+   "year": 1288,
+   "clade": "philosophy",
+   "tradition": "Jewish / Aristotelian",
+   "region": "Europe",
+   "source": "Britannica, 'Gersonides'",
+   "note": ""
+  },
+  "Q216072": {
+   "label": "Xunzi",
+   "year": -310,
+   "clade": "philosophy",
+   "tradition": "Chinese / Confucian",
+   "region": "East Asia",
+   "source": "SEP, 'Xunzi'",
+   "note": ""
+  },
+  "Q272411": {
+   "label": "Mozi",
+   "year": -470,
+   "clade": "philosophy",
+   "tradition": "Chinese / Mohist",
+   "region": "East Asia",
+   "source": "SEP, 'Mohism'",
+   "note": ""
+  },
+  "Q28959": {
+   "label": "Han Fei",
+   "year": -280,
+   "clade": "philosophy",
+   "tradition": "Chinese / Legalist",
+   "region": "East Asia",
+   "source": "SEP, 'Han Fei'",
+   "note": ""
+  },
+  "Q434429": {
+   "label": "Liezi",
+   "year": -450,
+   "clade": "philosophy",
+   "tradition": "Chinese / Daoist",
+   "region": "East Asia",
+   "source": "Britannica, 'Liezi'",
+   "note": ""
+  },
+  "Q459865": {
+   "label": "Wang Bi",
+   "year": 226,
+   "clade": "philosophy",
+   "tradition": "Chinese / Xuanxue",
+   "region": "East Asia",
+   "source": "Britannica, 'Wang Bi'",
+   "note": ""
+  },
+  "Q445626": {
+   "label": "Dong Zhongshu",
+   "year": -179,
+   "clade": "philosophy",
+   "tradition": "Chinese / Han Confucian",
+   "region": "East Asia",
+   "source": "Britannica, 'Dong Zhongshu'",
+   "note": ""
+  },
+  "Q318998": {
+   "label": "Han Yu",
+   "year": 768,
+   "clade": "philosophy",
+   "tradition": "Chinese / Confucian revival",
+   "region": "East Asia",
+   "source": "Britannica, 'Han Yu'",
+   "note": ""
+  },
+  "Q197962": {
+   "label": "Zhou Dunyi",
+   "year": 1017,
+   "clade": "philosophy",
+   "tradition": "Chinese / Neo-Confucian",
+   "region": "East Asia",
+   "source": "SEP, 'Zhu Xi'",
+   "note": ""
+  },
+  "Q197338": {
+   "label": "Zhang Zai",
+   "year": 1020,
+   "clade": "philosophy",
+   "tradition": "Chinese / Neo-Confucian",
+   "region": "East Asia",
+   "source": "SEP, 'Zhu Xi'",
+   "note": ""
+  },
+  "Q722288": {
+   "label": "Shao Yong",
+   "year": 1011,
+   "clade": "philosophy",
+   "tradition": "Chinese / Neo-Confucian",
+   "region": "East Asia",
+   "source": "Britannica, 'Shao Yong'",
+   "note": ""
+  },
+  "Q558192": {
+   "label": "Cheng Hao",
+   "year": 1032,
+   "clade": "philosophy",
+   "tradition": "Chinese / Neo-Confucian",
+   "region": "East Asia",
+   "source": "SEP, 'Zhu Xi'",
+   "note": ""
+  },
+  "Q558380": {
+   "label": "Cheng Yi",
+   "year": 1033,
+   "clade": "philosophy",
+   "tradition": "Chinese / Neo-Confucian",
+   "region": "East Asia",
+   "source": "SEP, 'Zhu Xi'",
+   "note": ""
+  },
+  "Q2466384": {
+   "label": "Lu Jiuyuan",
+   "year": 1139,
+   "clade": "philosophy",
+   "tradition": "Chinese / Neo-Confucian (Mind)",
+   "region": "East Asia",
+   "source": "Britannica, 'Lu Jiuyuan'",
+   "note": ""
+  },
+  "Q378462": {
+   "label": "Wang Yangming",
+   "year": 1472,
+   "clade": "philosophy",
+   "tradition": "Chinese / Neo-Confucian (Mind)",
+   "region": "East Asia",
+   "source": "SEP, 'Wang Yangming'",
+   "note": ""
+  },
+  "Q468747": {
+   "label": "Duke of Zhou",
+   "year": -1100,
+   "clade": "philosophy",
+   "tradition": "Chinese / Zhou foundational",
+   "region": "East Asia",
+   "source": "Britannica, 'Duke of Zhou'",
+   "note": "revered by Confucius as sage-exemplar"
+  },
+  "Q318064": {
+   "label": "Dogen",
+   "year": 1200,
+   "clade": "religion",
+   "tradition": "Japanese / Soto Zen",
+   "region": "East Asia",
+   "source": "Britannica, 'Dogen'",
+   "note": ""
+  },
+  "Q187172": {
+   "label": "Bodhidharma",
+   "year": 440,
+   "clade": "religion",
+   "tradition": "Chan/Zen Buddhism",
+   "region": "East Asia",
+   "source": "Britannica, 'Bodhidharma'",
+   "note": ""
+  },
+  "Q197778": {
+   "label": "Zhiyi",
+   "year": 538,
+   "clade": "religion",
+   "tradition": "Chinese / Tiantai Buddhism",
+   "region": "East Asia",
+   "source": "Britannica, 'Zhiyi'",
+   "note": ""
+  },
+  "Q345012": {
+   "label": "Huineng",
+   "year": 638,
+   "clade": "religion",
+   "tradition": "Chan Buddhism",
+   "region": "East Asia",
+   "source": "Britannica, 'Huineng'",
+   "note": ""
+  },
+  "Q222227": {
+   "label": "Kukai",
+   "year": 774,
+   "clade": "religion",
+   "tradition": "Japanese / Shingon",
+   "region": "East Asia",
+   "source": "Britannica, 'Kukai'",
+   "note": ""
+  },
+  "Q449943": {
+   "label": "Saicho",
+   "year": 767,
+   "clade": "religion",
+   "tradition": "Japanese / Tendai",
+   "region": "East Asia",
+   "source": "Britannica, 'Saicho'",
+   "note": ""
+  },
+  "Q507980": {
+   "label": "Honen",
+   "year": 1133,
+   "clade": "religion",
+   "tradition": "Japanese / Pure Land",
+   "region": "East Asia",
+   "source": "Britannica, 'Honen'",
+   "note": ""
+  },
+  "Q512934": {
+   "label": "Shinran",
+   "year": 1173,
+   "clade": "religion",
+   "tradition": "Japanese / Jodo Shinshu",
+   "region": "East Asia",
+   "source": "Britannica, 'Shinran'",
+   "note": ""
+  },
+  "Q1993564": {
+   "label": "Keiji Nishitani",
+   "year": 1900,
+   "clade": "philosophy",
+   "tradition": "Japanese / Kyoto School",
+   "region": "East Asia",
+   "source": "SEP, 'Kyoto School'",
+   "note": ""
+  },
+  "Q9422": {
+   "label": "Mahavira",
+   "year": -599,
+   "clade": "religion",
+   "tradition": "Jain",
+   "region": "South Asia",
+   "source": "Britannica, 'Mahavira'",
+   "note": "24th Tirthankara; reformer of the Jain community"
+  },
+  "Q316343": {
+   "label": "Vasubandhu",
+   "year": 350,
+   "clade": "philosophy",
+   "tradition": "Buddhist / Yogacara",
+   "region": "South Asia",
+   "source": "SEP, 'Vasubandhu'",
+   "note": ""
+  },
+  "Q379905": {
+   "label": "Asanga",
+   "year": 300,
+   "clade": "philosophy",
+   "tradition": "Buddhist / Yogacara",
+   "region": "South Asia",
+   "source": "Britannica, 'Asanga'",
+   "note": ""
+  },
+  "Q558272": {
+   "label": "Dignaga",
+   "year": 480,
+   "clade": "philosophy",
+   "tradition": "Buddhist / pramana logic",
+   "region": "South Asia",
+   "source": "SEP, 'Epistemology in Classical Indian Philosophy'",
+   "note": ""
+  },
+  "Q457990": {
+   "label": "Dharmakirti",
+   "year": 600,
+   "clade": "philosophy",
+   "tradition": "Buddhist / pramana logic",
+   "region": "South Asia",
+   "source": "SEP, 'Epistemology in Classical Indian Philosophy'",
+   "note": ""
+  },
+  "Q335247": {
+   "label": "Buddhaghosa",
+   "year": 400,
+   "clade": "religion",
+   "tradition": "Buddhist / Theravada",
+   "region": "South Asia",
+   "source": "Britannica, 'Buddhaghosa'",
+   "note": ""
+  },
+  "Q574355": {
+   "label": "Kapila",
+   "year": -600,
+   "clade": "philosophy",
+   "tradition": "Hindu / Samkhya",
+   "region": "South Asia",
+   "source": "Britannica, 'Kapila'",
+   "note": "traditional founder of Samkhya; historicity uncertain"
+  },
+  "Q29049": {
+   "label": "Kanada",
+   "year": -200,
+   "clade": "philosophy",
+   "tradition": "Hindu / Vaisheshika",
+   "region": "South Asia",
+   "source": "Britannica, 'Kanada'",
+   "note": ""
+  },
+  "Q2671506": {
+   "label": "Akshapada Gautama",
+   "year": -200,
+   "clade": "philosophy",
+   "tradition": "Hindu / Nyaya",
+   "region": "South Asia",
+   "source": "IEP, 'Nyaya'",
+   "note": ""
+  },
+  "Q2758596": {
+   "label": "Jaimini",
+   "year": -300,
+   "clade": "philosophy",
+   "tradition": "Hindu / Mimamsa",
+   "region": "South Asia",
+   "source": "Britannica, 'Jaimini'",
+   "note": ""
+  },
+  "Q4840620": {
+   "label": "Badarayana",
+   "year": -100,
+   "clade": "philosophy",
+   "tradition": "Hindu / Vedanta",
+   "region": "South Asia",
+   "source": "SEP, 'Sankara'",
+   "note": ""
+  },
+  "Q774847": {
+   "label": "Kumarila Bhatta",
+   "year": 700,
+   "clade": "philosophy",
+   "tradition": "Hindu / Mimamsa",
+   "region": "South Asia",
+   "source": "IEP, 'Kumarila Bhatta'",
+   "note": ""
+  },
+  "Q335161": {
+   "label": "Bhartrhari",
+   "year": 450,
+   "clade": "philosophy",
+   "tradition": "Hindu / grammarian-philosopher",
+   "region": "South Asia",
+   "source": "SEP, 'Bhartrhari'",
+   "note": ""
+  },
+  "Q1771062": {
+   "label": "Gaudapada",
+   "year": 500,
+   "clade": "philosophy",
+   "tradition": "Hindu / Advaita Vedanta",
+   "region": "South Asia",
+   "source": "SEP, 'Sankara'",
+   "note": ""
+  },
+  "Q1741798": {
+   "label": "Ramanuja",
+   "year": 1017,
+   "clade": "philosophy",
+   "tradition": "Hindu / Vishishtadvaita Vedanta",
+   "region": "South Asia",
+   "source": "IEP, 'Ramanuja'",
+   "note": ""
+  },
+  "Q335371": {
+   "label": "Madhvacharya",
+   "year": 1238,
+   "clade": "philosophy",
+   "tradition": "Hindu / Dvaita Vedanta",
+   "region": "South Asia",
+   "source": "Britannica, 'Madhva'",
+   "note": ""
+  },
+  "Q320619": {
+   "label": "Abhinavagupta",
+   "year": 950,
+   "clade": "philosophy",
+   "tradition": "Hindu / Kashmir Shaivism",
+   "region": "South Asia",
+   "source": "Britannica, 'Abhinavagupta'",
+   "note": ""
+  },
+  "Q870262": {
+   "label": "Chaitanya Mahaprabhu",
+   "year": 1486,
+   "clade": "religion",
+   "tradition": "Hindu / Gaudiya Vaishnava",
+   "region": "South Asia",
+   "source": "Britannica, 'Chaitanya'",
+   "note": ""
+  },
+  "Q83322": {
+   "label": "Guru Nanak",
+   "year": 1469,
+   "clade": "religion",
+   "tradition": "Sikh",
+   "region": "South Asia",
+   "source": "Britannica, 'Guru Nanak'",
+   "note": ""
+  },
+  "Q9045": {
+   "label": "Chanakya (Kautilya)",
+   "year": -375,
+   "clade": "social",
+   "tradition": "Indian / Arthashastra statecraft",
+   "region": "South Asia",
+   "source": "Britannica, 'Chanakya'",
+   "note": ""
+  },
+  "Q231582": {
+   "label": "Padmasambhava",
+   "year": 750,
+   "clade": "religion",
+   "tradition": "Tibetan / Nyingma",
+   "region": "Tibet",
+   "source": "Britannica, 'Padmasambhava'",
+   "note": ""
+  },
+  "Q320150": {
+   "label": "Atisa",
+   "year": 982,
+   "clade": "religion",
+   "tradition": "Tibetan / Kadam",
+   "region": "Tibet",
+   "source": "Britannica, 'Atisa'",
+   "note": ""
+  },
+  "Q58431": {
+   "label": "Milarepa",
+   "year": 1052,
+   "clade": "religion",
+   "tradition": "Tibetan / Kagyu",
+   "region": "Tibet",
+   "source": "Britannica, 'Milarepa'",
+   "note": ""
+  },
+  "Q323439": {
+   "label": "Je Tsongkhapa",
+   "year": 1357,
+   "clade": "religion",
+   "tradition": "Tibetan / Gelug",
+   "region": "Tibet",
+   "source": "Britannica, 'Tsongkhapa'",
+   "note": ""
+  },
+  "Q203922": {
+   "label": "Mani",
+   "year": 216,
+   "clade": "religion",
+   "tradition": "Manichaean",
+   "region": "Middle East",
+   "source": "Britannica, 'Mani'",
+   "note": ""
+  },
+  "Q188794": {
+   "label": "Isaiah",
+   "year": -740,
+   "clade": "religion",
+   "tradition": "Hebrew prophetic",
+   "region": "Levant",
+   "source": "Britannica, 'Isaiah'",
+   "note": ""
+  },
+  "Q158825": {
+   "label": "Jeremiah",
+   "year": -650,
+   "clade": "religion",
+   "tradition": "Hebrew prophetic",
+   "region": "Levant",
+   "source": "Britannica, 'Jeremiah'",
+   "note": ""
+  },
+  "Q194064": {
+   "label": "Ezekiel",
+   "year": -622,
+   "clade": "religion",
+   "tradition": "Hebrew prophetic",
+   "region": "Levant",
+   "source": "Britannica, 'Ezekiel'",
+   "note": ""
+  },
+  "Q213850": {
+   "label": "Amos",
+   "year": -780,
+   "clade": "religion",
+   "tradition": "Hebrew prophetic",
+   "region": "Levant",
+   "source": "Britannica, 'Amos'",
+   "note": ""
+  },
+  "Q665541": {
+   "label": "Hosea",
+   "year": -750,
+   "clade": "religion",
+   "tradition": "Hebrew prophetic",
+   "region": "Levant",
+   "source": "Britannica, 'Hosea'",
+   "note": ""
+  },
+  "Q133507": {
+   "label": "Elijah",
+   "year": -870,
+   "clade": "religion",
+   "tradition": "Hebrew prophetic",
+   "region": "Levant",
+   "source": "Britannica, 'Elijah'",
+   "note": "pre-literary prophet; archetype of the prophetic tradition"
+  },
+  "Q573606": {
+   "label": "Ptahhotep",
+   "year": -2400,
+   "clade": "scholar",
+   "tradition": "Ancient Egyptian wisdom",
+   "region": "Africa / Egypt",
+   "source": "Britannica, 'Ptahhotep'",
+   "note": ""
+  },
+  "Q2844817": {
+   "label": "Amenemope",
+   "year": -1200,
+   "clade": "scholar",
+   "tradition": "Ancient Egyptian wisdom",
+   "region": "Africa / Egypt",
+   "source": "M. Lichtheim, Ancient Egyptian Literature II; A. Erman (1924) on Amenemope / Proverbs 22:17-24:34",
+   "note": ""
+  },
+  "Q81794": {
+   "label": "Akhenaten",
+   "year": -1350,
+   "clade": "religion",
+   "tradition": "Ancient Egyptian (Atenism)",
+   "region": "Africa / Egypt",
+   "source": "Britannica, 'Akhenaten'",
+   "note": "promulgated Aten-centred worship; link to later monotheism is contested/speculative"
+  },
+  "Q2896591": {
+   "label": "Zera Yacob",
+   "year": 1599,
+   "clade": "philosophy",
+   "tradition": "Ethiopian rationalist",
+   "region": "Africa / Ethiopia",
+   "source": "IEP, 'Zera Yacob'",
+   "note": ""
+  },
+  "Q7961364": {
+   "label": "Walda Heywat",
+   "year": 1630,
+   "clade": "philosophy",
+   "tradition": "Ethiopian rationalist",
+   "region": "Africa / Ethiopia",
+   "source": "IEP, 'Zera Yacob'",
+   "note": ""
+  },
+  "Q595486": {
+   "label": "Anton Wilhelm Amo",
+   "year": 1703,
+   "clade": "philosophy",
+   "tradition": "African-European Enlightenment",
+   "region": "Africa / Europe",
+   "source": "SEP, 'Africana Philosophy'",
+   "note": ""
+  },
+  "Q343645": {
+   "label": "Nezahualcoyotl",
+   "year": 1402,
+   "clade": "philosophy",
+   "tradition": "Nahua / tlamatini",
+   "region": "Mesoamerica",
+   "source": "Britannica, 'Nezahualcoyotl'",
+   "note": "poet-philosopher; verses preserved in post-conquest transcriptions"
+  },
+  "Q26714": {
+   "label": "Paul Deussen",
+   "year": 1845,
+   "clade": "philosophy",
+   "tradition": "German / Indology",
+   "region": "Europe",
+   "source": "Britannica, 'Paul Deussen'",
+   "note": ""
+  },
+  "Q233340": {
+   "label": "Matteo Ricci",
+   "year": 1552,
+   "clade": "religion",
+   "tradition": "Jesuit / China mission",
+   "region": "Europe / East Asia",
+   "source": "Britannica, 'Matteo Ricci'",
+   "note": ""
+  },
+  "Q343167": {
+   "label": "Christian Wolff",
+   "year": 1679,
+   "clade": "philosophy",
+   "tradition": "German / Enlightenment rationalism",
+   "region": "Europe",
+   "source": "Britannica, 'Christian Wolff'",
+   "note": ""
+  },
+  "Q81438": {
+   "label": "Walt Whitman",
+   "year": 1819,
+   "clade": "philosophy",
+   "tradition": "American / Transcendentalist milieu",
+   "region": "North America",
+   "source": "Britannica, 'Walt Whitman'",
+   "note": ""
+  },
+  "aug:vedas": {
+   "label": "Vedas (Vedic corpus)",
+   "year": -1200,
+   "clade": "religion",
+   "tradition": "Vedic",
+   "region": "South Asia",
+   "source": "Britannica, 'Veda'",
+   "note": "anonymous oral-then-textual corpus, c.1500-900 BCE"
+  },
+  "aug:upanishads": {
+   "label": "Upanishads",
+   "year": -700,
+   "clade": "philosophy",
+   "tradition": "Vedic / Vedanta root",
+   "region": "South Asia",
+   "source": "Britannica, 'Upanishad'",
+   "note": "anonymous, c.800-300 BCE; source-text of Vedanta"
+  },
+  "aug:sramana": {
+   "label": "Sramana movement",
+   "year": -600,
+   "clade": "religion",
+   "tradition": "Heterodox ascetic milieu",
+   "region": "South Asia",
+   "source": "Britannica, 'Sramana'",
+   "note": "shared ascetic milieu of Buddhism, Jainism, Ajivika, Charvaka"
+  },
+  "aug:charvaka": {
+   "label": "Charvaka / Lokayata",
+   "year": -600,
+   "clade": "philosophy",
+   "tradition": "Indian materialist",
+   "region": "South Asia",
+   "source": "IEP, 'Lokayata/Carvaka'",
+   "note": "materialist school; founding texts lost, known via opponents"
+  },
+  "aug:book-of-proverbs": {
+   "label": "Book of Proverbs",
+   "year": -600,
+   "clade": "religion",
+   "tradition": "Hebrew wisdom literature",
+   "region": "Levant",
+   "source": "M. Lichtheim, Ancient Egyptian Literature II; A. Erman (1924) on Amenemope / Proverbs 22:17-24:34",
+   "note": "compiled Hebrew wisdom collection"
+  },
+  "aug:tlamatinime": {
+   "label": "Tlamatinime (Nahua sages)",
+   "year": 1300,
+   "clade": "philosophy",
+   "tradition": "Nahua / Aztec",
+   "region": "Mesoamerica",
+   "source": "M. Leon-Portilla, Aztec Thought and Culture",
+   "note": "tradition of Nahua philosopher-sages; largely oral, transcribed post-conquest"
+  },
+  "aug:andean-cosmology": {
+   "label": "Andean (Inca/Quechua) cosmology",
+   "year": -200,
+   "clade": "religion",
+   "tradition": "Andean",
+   "region": "South America",
+   "source": "Pre-literate; penumbra tradition-root",
+   "note": "oral cosmology; no textual influenced-by record"
+  },
+  "aug:native-na-cosmology": {
+   "label": "Native North American cosmologies",
+   "year": -500,
+   "clade": "religion",
+   "tradition": "Indigenous North American",
+   "region": "North America",
+   "source": "Pre-literate; penumbra tradition-root",
+   "note": "diverse oral cosmologies; no textual influenced-by record"
+  },
+  "aug:aboriginal-dreaming": {
+   "label": "Aboriginal Australian Dreaming",
+   "year": -5000,
+   "clade": "religion",
+   "tradition": "Aboriginal Australian",
+   "region": "Oceania",
+   "source": "Pre-literate; penumbra tradition-root",
+   "note": "deep-time oral cosmology; no textual influenced-by record"
+  },
+  "Q350670": {
+   "label": "Panini",
+   "year": -500,
+   "clade": "scholar",
+   "tradition": "Sanskrit grammar",
+   "region": "South Asia",
+   "source": "Britannica, 'Panini'",
+   "note": ""
+  },
+  "Q558275": {
+   "label": "Aryadeva",
+   "year": 170,
+   "clade": "philosophy",
+   "tradition": "Buddhist / Madhyamaka",
+   "region": "South Asia",
+   "source": "Britannica, 'Aryadeva'",
+   "note": ""
+  },
+  "Q456963": {
+   "label": "Chandrakirti",
+   "year": 600,
+   "clade": "philosophy",
+   "tradition": "Buddhist / Prasangika Madhyamaka",
+   "region": "South Asia",
+   "source": "Britannica, 'Chandrakirti'",
+   "note": ""
+  },
+  "Q381874": {
+   "label": "Musonius Rufus",
+   "year": 30,
+   "clade": "philosophy",
+   "tradition": "Roman / Stoic",
+   "region": "Mediterranean",
+   "source": "Britannica, 'Musonius Rufus'",
+   "note": ""
+  },
+  "Q2075639": {
+   "label": "Yamunacharya",
+   "year": 916,
+   "clade": "philosophy",
+   "tradition": "Hindu / Sri Vaishnava",
+   "region": "South Asia",
+   "source": "IEP, 'Ramanuja'",
+   "note": ""
+  },
+  "Q4314218": {
+   "label": "Nathamuni",
+   "year": 823,
+   "clade": "philosophy",
+   "tradition": "Hindu / Sri Vaishnava",
+   "region": "South Asia",
+   "source": "IEP, 'Ramanuja'",
+   "note": ""
+  },
+  "Q197172": {
+   "label": "Zhang Daoling",
+   "year": 34,
+   "clade": "religion",
+   "tradition": "Chinese / Celestial Masters Daoism",
+   "region": "East Asia",
+   "source": "Britannica, 'Zhang Daoling'",
+   "note": ""
+  },
+  "Q553678": {
+   "label": "Ge Hong",
+   "year": 283,
+   "clade": "religion",
+   "tradition": "Chinese / Daoist alchemy",
+   "region": "East Asia",
+   "source": "Britannica, 'Ge Hong'",
+   "note": ""
+  },
+  "Q1013023": {
+   "label": "Shandao",
+   "year": 613,
+   "clade": "religion",
+   "tradition": "Chinese / Pure Land Buddhism",
+   "region": "East Asia",
+   "source": "Britannica, 'Shandao'",
+   "note": ""
+  }
+ },
+ "edges": [
+  {
+   "from": "Q42458",
+   "to": "Q36303",
+   "confidence": "consensus",
+   "source": "SEP, 'Presocratic Philosophy'",
+   "note": "Anaximander <- Thales (Milesian succession)"
+  },
+  {
+   "from": "Q80612",
+   "to": "Q42458",
+   "confidence": "consensus",
+   "source": "SEP, 'Presocratic Philosophy'",
+   "note": "Anaximenes <- Anaximander"
+  },
+  {
+   "from": "Q132157",
+   "to": "Q125551",
+   "confidence": "documented",
+   "source": "SEP, 'Zeno of Elea'",
+   "note": "Zeno of Elea <- Parmenides (paradoxes defend Eleatic monism)"
+  },
+  {
+   "from": "Q83375",
+   "to": "Q125551",
+   "confidence": "consensus",
+   "source": "SEP, 'Empedocles'",
+   "note": "Empedocles <- Parmenides"
+  },
+  {
+   "from": "Q41980",
+   "to": "Q165589",
+   "confidence": "documented",
+   "source": "Britannica, 'Leucippus'",
+   "note": "Democritus <- Leucippus (atomism, teacher)"
+  },
+  {
+   "from": "Q43216",
+   "to": "Q41980",
+   "confidence": "documented",
+   "source": "Britannica, 'Epicurus'",
+   "note": "Epicurus <- Democritus (atomist physics)"
+  },
+  {
+   "from": "Q47154",
+   "to": "Q43216",
+   "confidence": "documented",
+   "source": "Britannica, 'Lucretius'",
+   "note": "Lucretius <- Epicurus (De Rerum Natura expounds Epicureanism)"
+  },
+  {
+   "from": "Q859",
+   "to": "Q913",
+   "confidence": "documented",
+   "source": "SEP, 'Plato'",
+   "note": "Plato <- Socrates (his teacher; dialogues)"
+  },
+  {
+   "from": "Q859",
+   "to": "Q10261",
+   "confidence": "consensus",
+   "source": "SEP, 'Plato'",
+   "note": "Plato <- Pythagoras (number, immortality of soul)"
+  },
+  {
+   "from": "Q859",
+   "to": "Q125551",
+   "confidence": "consensus",
+   "source": "SEP, 'Plato'",
+   "note": "Plato <- Parmenides (being; the Parmenides dialogue)"
+  },
+  {
+   "from": "Q868",
+   "to": "Q859",
+   "confidence": "documented",
+   "source": "SEP, 'Aristotle'",
+   "note": "Aristotle <- Plato (twenty years in the Academy)"
+  },
+  {
+   "from": "Q179149",
+   "to": "Q913",
+   "confidence": "documented",
+   "source": "Britannica, 'Antisthenes'",
+   "note": "Antisthenes <- Socrates (founder of Cynic ethics)"
+  },
+  {
+   "from": "Q59180",
+   "to": "Q179149",
+   "confidence": "consensus",
+   "source": "Britannica, 'Diogenes'",
+   "note": "Diogenes <- Antisthenes (Cynic lineage)"
+  },
+  {
+   "from": "Q171303",
+   "to": "Q59180",
+   "confidence": "documented",
+   "source": "SEP, 'Stoicism'",
+   "note": "Zeno of Citium <- Cynics/Crates (Stoicism grows from Cynicism)"
+  },
+  {
+   "from": "Q310149",
+   "to": "Q171303",
+   "confidence": "documented",
+   "source": "SEP, 'Stoicism'",
+   "note": "Cleanthes <- Zeno of Citium (2nd head of the Stoa)"
+  },
+  {
+   "from": "Q211411",
+   "to": "Q310149",
+   "confidence": "documented",
+   "source": "SEP, 'Stoicism'",
+   "note": "Chrysippus <- Cleanthes (systematized Stoicism)"
+  },
+  {
+   "from": "Q2054",
+   "to": "Q171303",
+   "confidence": "consensus",
+   "source": "SEP, 'Stoicism'",
+   "note": "Seneca <- Zeno/early Stoa"
+  },
+  {
+   "from": "Q1430",
+   "to": "Q183144",
+   "confidence": "documented",
+   "source": "Britannica, 'Marcus Aurelius'",
+   "note": "Marcus Aurelius <- Epictetus (Meditations cites him)"
+  },
+  {
+   "from": "Q236594",
+   "to": "Q192313",
+   "confidence": "documented",
+   "source": "SEP, 'Sextus Empiricus'",
+   "note": "Sextus Empiricus <- Pyrrho (Pyrrhonian skepticism)"
+  },
+  {
+   "from": "Q134189",
+   "to": "Q310173",
+   "confidence": "documented",
+   "source": "SEP, 'Plotinus'",
+   "note": "Plotinus <- Ammonius Saccas (his teacher in Alexandria)"
+  },
+  {
+   "from": "Q134189",
+   "to": "Q859",
+   "confidence": "documented",
+   "source": "SEP, 'Plotinus'",
+   "note": "Plotinus <- Plato (Neoplatonism as Platonic exegesis)"
+  },
+  {
+   "from": "Q203445",
+   "to": "Q134189",
+   "confidence": "documented",
+   "source": "SEP, 'Porphyry'",
+   "note": "Porphyry <- Plotinus (student; edited the Enneads)"
+  },
+  {
+   "from": "Q310916",
+   "to": "Q203445",
+   "confidence": "consensus",
+   "source": "Britannica, 'Iamblichus'",
+   "note": "Iamblichus <- Porphyry (studied under him)"
+  },
+  {
+   "from": "Q271809",
+   "to": "Q310916",
+   "confidence": "consensus",
+   "source": "SEP, 'Proclus'",
+   "note": "Proclus <- Iamblichus (later Neoplatonic theurgy)"
+  },
+  {
+   "from": "Q271809",
+   "to": "Q859",
+   "confidence": "documented",
+   "source": "SEP, 'Proclus'",
+   "note": "Proclus <- Plato (Elements of Theology systematizes Platonism)"
+  },
+  {
+   "from": "Q179759",
+   "to": "Q868",
+   "confidence": "consensus",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "al-Kindi <- Aristotle (first Arabic Peripatetic)"
+  },
+  {
+   "from": "Q179759",
+   "to": "Q134189",
+   "confidence": "consensus",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "al-Kindi <- Plotinus (via the Arabic 'Theology of Aristotle')"
+  },
+  {
+   "from": "Q160460",
+   "to": "Q868",
+   "confidence": "documented",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "al-Farabi <- Aristotle (emphasis on demonstration)"
+  },
+  {
+   "from": "Q160460",
+   "to": "Q859",
+   "confidence": "consensus",
+   "source": "Britannica, 'al-Farabi'",
+   "note": "al-Farabi <- Plato ('Philosophy of Plato and Aristotle')"
+  },
+  {
+   "from": "Q160460",
+   "to": "Q134189",
+   "confidence": "consensus",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "al-Farabi <- Neoplatonism (emanation)"
+  },
+  {
+   "from": "Q8011",
+   "to": "Q160460",
+   "confidence": "documented",
+   "source": "Britannica, 'Avicenna'",
+   "note": "Avicenna <- al-Farabi (credited Farabi's commentary for the Metaphysics)"
+  },
+  {
+   "from": "Q8011",
+   "to": "Q868",
+   "confidence": "documented",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "Avicenna <- Aristotle"
+  },
+  {
+   "from": "Q8011",
+   "to": "Q134189",
+   "confidence": "documented",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "Avicenna combined Aristotelian and Neoplatonic traditions"
+  },
+  {
+   "from": "Q39837",
+   "to": "Q868",
+   "confidence": "documented",
+   "source": "SEP, 'Ibn Rushd [Averroes]'",
+   "note": "Averroes <- Aristotle ('the Commentator'; unsurpassed authority)"
+  },
+  {
+   "from": "Q39837",
+   "to": "Q160460",
+   "confidence": "documented",
+   "source": "SEP, 'Ibn Rushd [Averroes]'",
+   "note": "Averroes <- al-Farabi (critical engagement in logic)"
+  },
+  {
+   "from": "Q39837",
+   "to": "Q8011",
+   "confidence": "documented",
+   "source": "SEP, 'Ibn Rushd [Averroes]'",
+   "note": "Averroes <- Avicenna (critical engagement in metaphysics)"
+  },
+  {
+   "from": "Q39837",
+   "to": "Q9546",
+   "confidence": "documented",
+   "source": "SEP, 'Ibn Rushd [Averroes]'",
+   "note": "Averroes <- al-Ghazali (Incoherence of the Incoherence answers Ghazali)"
+  },
+  {
+   "from": "Q9546",
+   "to": "Q8011",
+   "confidence": "documented",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "al-Ghazali <- Avicenna (reworked Avicennian logic; then critiqued it)"
+  },
+  {
+   "from": "Q9546",
+   "to": "Q316349",
+   "confidence": "consensus",
+   "source": "Britannica, 'al-Ghazali'",
+   "note": "al-Ghazali <- al-Ash'ari (Ash'arite theology)"
+  },
+  {
+   "from": "Q251259",
+   "to": "Q8011",
+   "confidence": "consensus",
+   "source": "Britannica, 'Ibn Tufayl'",
+   "note": "Ibn Tufayl <- Avicenna (Hayy ibn Yaqzan named for Avicenna's tale)"
+  },
+  {
+   "from": "Q251259",
+   "to": "Q11362",
+   "confidence": "consensus",
+   "source": "Britannica, 'Ibn Tufayl'",
+   "note": "Ibn Tufayl <- Ibn Bajja"
+  },
+  {
+   "from": "Q11362",
+   "to": "Q160460",
+   "confidence": "consensus",
+   "source": "Britannica, 'Ibn Bajja'",
+   "note": "Ibn Bajja <- al-Farabi"
+  },
+  {
+   "from": "Q282883",
+   "to": "Q8011",
+   "confidence": "documented",
+   "source": "SEP, 'al-Suhrawardi'",
+   "note": "Suhrawardi <- Avicenna (builds on and departs from Avicennan Peripateticism)"
+  },
+  {
+   "from": "Q282883",
+   "to": "Q859",
+   "confidence": "consensus",
+   "source": "SEP, 'al-Suhrawardi'",
+   "note": "Suhrawardi <- Plato/Neoplatonism (Illuminationist light metaphysics)"
+  },
+  {
+   "from": "Q2010955",
+   "to": "Q8011",
+   "confidence": "documented",
+   "source": "SEP, 'Mulla Sadra'",
+   "note": "Mulla Sadra <- Avicenna"
+  },
+  {
+   "from": "Q2010955",
+   "to": "Q282883",
+   "confidence": "documented",
+   "source": "SEP, 'Mulla Sadra'",
+   "note": "Mulla Sadra <- Suhrawardi (Illuminationism)"
+  },
+  {
+   "from": "Q2010955",
+   "to": "Q46420",
+   "confidence": "documented",
+   "source": "SEP, 'Mulla Sadra'",
+   "note": "Mulla Sadra <- Ibn Arabi (wahdat al-wujud)"
+  },
+  {
+   "from": "Q333703",
+   "to": "Q8011",
+   "confidence": "consensus",
+   "source": "Britannica, 'Fakhr al-Din al-Razi'",
+   "note": "Fakhr al-Din al-Razi <- Avicenna (critical commentary)"
+  },
+  {
+   "from": "Q302835",
+   "to": "Q8011",
+   "confidence": "consensus",
+   "source": "Britannica, 'Nasir al-Din al-Tusi'",
+   "note": "al-Tusi <- Avicenna (defended Avicenna against Fakhr al-Din al-Razi)"
+  },
+  {
+   "from": "Q9294",
+   "to": "Q868",
+   "confidence": "consensus",
+   "source": "Britannica, 'Ibn Khaldun'",
+   "note": "Ibn Khaldun <- Aristotle (logic, politics)"
+  },
+  {
+   "from": "Q9294",
+   "to": "Q39837",
+   "confidence": "consensus",
+   "source": "Britannica, 'Ibn Khaldun'",
+   "note": "Ibn Khaldun <- Averroes (Andalusian Aristotelian milieu)"
+  },
+  {
+   "from": "Q256506",
+   "to": "Q293500",
+   "confidence": "consensus",
+   "source": "Britannica, 'Rabiah al-Adawiyyah'",
+   "note": "Rabia <- Hasan al-Basri milieu (early Basran asceticism)"
+  },
+  {
+   "from": "Q735601",
+   "to": "Q256506",
+   "confidence": "consensus",
+   "source": "Britannica, 'Junayd of Baghdad'",
+   "note": "Junayd <- early Sufi ascetics (Rabia's love-mysticism)"
+  },
+  {
+   "from": "Q172862",
+   "to": "Q735601",
+   "confidence": "consensus",
+   "source": "Britannica, 'al-Hallaj'",
+   "note": "al-Hallaj <- Junayd (his teacher)"
+  },
+  {
+   "from": "Q43347",
+   "to": "Q46420",
+   "confidence": "contested",
+   "source": "Britannica, 'Rumi'",
+   "note": "Rumi <- Ibn Arabi (shared wahdat al-wujud milieu; direct dependence debated)"
+  },
+  {
+   "from": "Q9438",
+   "to": "Q868",
+   "confidence": "documented",
+   "source": "SEP, 'Thomas Aquinas'",
+   "note": "Aquinas <- Aristotle (Christian Aristotelianism)"
+  },
+  {
+   "from": "Q9438",
+   "to": "Q8011",
+   "confidence": "documented",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "Aquinas <- Avicenna (God as necessary being, essence/existence)"
+  },
+  {
+   "from": "Q9438",
+   "to": "Q39837",
+   "confidence": "documented",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "Aquinas <- Averroes (natural philosophy; the great commentaries)"
+  },
+  {
+   "from": "Q9438",
+   "to": "Q127398",
+   "confidence": "documented",
+   "source": "SEP, 'Maimonides'",
+   "note": "Aquinas <- Maimonides (limits of demonstration re: creation)"
+  },
+  {
+   "from": "Q9438",
+   "to": "Q8018",
+   "confidence": "documented",
+   "source": "SEP, 'Thomas Aquinas'",
+   "note": "Aquinas <- Augustine"
+  },
+  {
+   "from": "Q9438",
+   "to": "Q312816",
+   "confidence": "consensus",
+   "source": "SEP, 'Thomas Aquinas'",
+   "note": "Aquinas <- Pseudo-Dionysius"
+  },
+  {
+   "from": "Q9438",
+   "to": "Q102851",
+   "confidence": "consensus",
+   "source": "Britannica, 'Thomas Aquinas'",
+   "note": "Aquinas <- Boethius"
+  },
+  {
+   "from": "Q60059",
+   "to": "Q8011",
+   "confidence": "documented",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "Albertus Magnus <- Avicenna (acquired intellect, internal senses)"
+  },
+  {
+   "from": "Q60059",
+   "to": "Q39837",
+   "confidence": "documented",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "Albertus Magnus <- Averroes (intellect theory)"
+  },
+  {
+   "from": "Q60059",
+   "to": "Q868",
+   "confidence": "documented",
+   "source": "Britannica, 'Albertus Magnus'",
+   "note": "Albertus Magnus <- Aristotle"
+  },
+  {
+   "from": "Q9438",
+   "to": "Q60059",
+   "confidence": "documented",
+   "source": "SEP, 'Thomas Aquinas'",
+   "note": "Aquinas <- Albertus Magnus (his teacher)"
+  },
+  {
+   "from": "Q190089",
+   "to": "Q8011",
+   "confidence": "documented",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "Duns Scotus <- Avicenna (being as the subject of metaphysics)"
+  },
+  {
+   "from": "Q190089",
+   "to": "Q868",
+   "confidence": "consensus",
+   "source": "Britannica, 'Duns Scotus'",
+   "note": "Duns Scotus <- Aristotle"
+  },
+  {
+   "from": "Q43936",
+   "to": "Q190089",
+   "confidence": "consensus",
+   "source": "Britannica, 'William of Ockham'",
+   "note": "Ockham <- Duns Scotus (critical response)"
+  },
+  {
+   "from": "Q160460",
+   "to": "Q179759",
+   "confidence": "consensus",
+   "source": "Britannica, 'al-Farabi'",
+   "note": "al-Farabi <- al-Kindi (earlier Arabic falsafa)"
+  },
+  {
+   "from": "Q8018",
+   "to": "Q859",
+   "confidence": "documented",
+   "source": "SEP, 'Saint Augustine'",
+   "note": "Augustine <- Plato (via Neoplatonism)"
+  },
+  {
+   "from": "Q8018",
+   "to": "Q134189",
+   "confidence": "documented",
+   "source": "SEP, 'Saint Augustine'",
+   "note": "Augustine <- Plotinus (the 'books of the Platonists')"
+  },
+  {
+   "from": "Q8018",
+   "to": "Q1541",
+   "confidence": "documented",
+   "source": "Britannica, 'Saint Augustine'",
+   "note": "Augustine <- Cicero (Hortensius turned him to philosophy)"
+  },
+  {
+   "from": "Q102851",
+   "to": "Q868",
+   "confidence": "documented",
+   "source": "Britannica, 'Boethius'",
+   "note": "Boethius <- Aristotle (translated/commented the logic)"
+  },
+  {
+   "from": "Q102851",
+   "to": "Q203445",
+   "confidence": "documented",
+   "source": "Britannica, 'Boethius'",
+   "note": "Boethius <- Porphyry (commentary on the Isagoge)"
+  },
+  {
+   "from": "Q43939",
+   "to": "Q8018",
+   "confidence": "documented",
+   "source": "SEP, 'Saint Anselm'",
+   "note": "Anselm <- Augustine (faith seeking understanding)"
+  },
+  {
+   "from": "Q4295",
+   "to": "Q102851",
+   "confidence": "consensus",
+   "source": "Britannica, 'Peter Abelard'",
+   "note": "Abelard <- Boethius (logic, universals)"
+  },
+  {
+   "from": "Q43746",
+   "to": "Q8018",
+   "confidence": "documented",
+   "source": "Britannica, 'Saint Bonaventure'",
+   "note": "Bonaventure <- Augustine"
+  },
+  {
+   "from": "Q43746",
+   "to": "Q312816",
+   "confidence": "consensus",
+   "source": "Britannica, 'Saint Bonaventure'",
+   "note": "Bonaventure <- Pseudo-Dionysius (mystical ascent)"
+  },
+  {
+   "from": "Q312816",
+   "to": "Q271809",
+   "confidence": "documented",
+   "source": "SEP, 'Pseudo-Dionysius the Areopagite'",
+   "note": "Pseudo-Dionysius <- Proclus (Neoplatonic hierarchy)"
+  },
+  {
+   "from": "Q76548",
+   "to": "Q9438",
+   "confidence": "consensus",
+   "source": "Britannica, 'Meister Eckhart'",
+   "note": "Eckhart <- Aquinas (Dominican Thomism)"
+  },
+  {
+   "from": "Q76548",
+   "to": "Q312816",
+   "confidence": "documented",
+   "source": "Britannica, 'Meister Eckhart'",
+   "note": "Eckhart <- Pseudo-Dionysius (negative theology)"
+  },
+  {
+   "from": "Q76548",
+   "to": "Q127398",
+   "confidence": "consensus",
+   "source": "Britannica, 'Meister Eckhart'",
+   "note": "Eckhart <- Maimonides (cited in his Latin work)"
+  },
+  {
+   "from": "Q170472",
+   "to": "Q188883",
+   "confidence": "consensus",
+   "source": "Britannica, 'Origen'",
+   "note": "Origen <- Clement of Alexandria (Alexandrian Christian Platonism)"
+  },
+  {
+   "from": "Q188883",
+   "to": "Q859",
+   "confidence": "consensus",
+   "source": "Britannica, 'Saint Clement of Alexandria'",
+   "note": "Clement <- Plato (Christian appropriation of Platonism)"
+  },
+  {
+   "from": "Q189597",
+   "to": "Q859",
+   "confidence": "documented",
+   "source": "Britannica, 'Philo Judaeus'",
+   "note": "Philo <- Plato (allegorical Platonizing of Torah)"
+  },
+  {
+   "from": "Q189597",
+   "to": "Q171303",
+   "confidence": "consensus",
+   "source": "Britannica, 'Philo Judaeus'",
+   "note": "Philo <- Stoicism (Logos)"
+  },
+  {
+   "from": "Q239355",
+   "to": "Q134189",
+   "confidence": "documented",
+   "source": "Britannica, 'Solomon ben Yehuda ibn Gabirol'",
+   "note": "ibn Gabirol <- Neoplatonism (Fons Vitae)"
+  },
+  {
+   "from": "Q299200",
+   "to": "Q9546",
+   "confidence": "consensus",
+   "source": "Britannica, 'Judah ha-Levi'",
+   "note": "Judah Halevi <- al-Ghazali (anti-philosophical apologetics)"
+  },
+  {
+   "from": "Q127398",
+   "to": "Q868",
+   "confidence": "documented",
+   "source": "SEP, 'Maimonides'",
+   "note": "Maimonides <- Aristotle (Neoplatonized Aristotelianism)"
+  },
+  {
+   "from": "Q127398",
+   "to": "Q160460",
+   "confidence": "documented",
+   "source": "SEP, 'Maimonides'",
+   "note": "Maimonides <- al-Farabi (cosmology)"
+  },
+  {
+   "from": "Q127398",
+   "to": "Q8011",
+   "confidence": "documented",
+   "source": "SEP, 'Maimonides'",
+   "note": "Maimonides <- Avicenna (metaphysics of the intelligences)"
+  },
+  {
+   "from": "Q353633",
+   "to": "Q39837",
+   "confidence": "documented",
+   "source": "SEP, 'Ibn Rushd [Averroes]'",
+   "note": "Gersonides <- Averroes (supercommentaries)"
+  },
+  {
+   "from": "Q353633",
+   "to": "Q127398",
+   "confidence": "consensus",
+   "source": "Britannica, 'Gersonides'",
+   "note": "Gersonides <- Maimonides"
+  },
+  {
+   "from": "Q528415",
+   "to": "Q127398",
+   "confidence": "consensus",
+   "source": "Britannica, 'Hasdai ben Abraham Crescas'",
+   "note": "Crescas <- Maimonides (critical response)"
+  },
+  {
+   "from": "Q35802",
+   "to": "Q127398",
+   "confidence": "documented",
+   "source": "SEP, 'Maimonides'",
+   "note": "Spinoza <- Maimonides (influence acknowledged in the Ethics tradition)"
+  },
+  {
+   "from": "Q35802",
+   "to": "Q528415",
+   "confidence": "consensus",
+   "source": "SEP, 'Baruch Spinoza'",
+   "note": "Spinoza <- Crescas (necessity, extension)"
+  },
+  {
+   "from": "Q4604",
+   "to": "Q468747",
+   "confidence": "documented",
+   "source": "Britannica, 'Confucius'",
+   "note": "Confucius <- Duke of Zhou (revered sage-model; Analects)"
+  },
+  {
+   "from": "Q188903",
+   "to": "Q4604",
+   "confidence": "documented",
+   "source": "SEP, 'Mencius'",
+   "note": "Mencius <- Confucius (via Zisi's school; developed ren)"
+  },
+  {
+   "from": "Q216072",
+   "to": "Q4604",
+   "confidence": "documented",
+   "source": "SEP, 'Xunzi'",
+   "note": "Xunzi <- Confucius"
+  },
+  {
+   "from": "Q216072",
+   "to": "Q188903",
+   "confidence": "contested",
+   "source": "SEP, 'Xunzi'",
+   "note": "Xunzi <- Mencius (critical response; human nature is bad)"
+  },
+  {
+   "from": "Q272411",
+   "to": "Q4604",
+   "confidence": "contested",
+   "source": "SEP, 'Mohism'",
+   "note": "Mozi <- Confucian tradition (trained in then rejected it)"
+  },
+  {
+   "from": "Q28959",
+   "to": "Q216072",
+   "confidence": "documented",
+   "source": "SEP, 'Han Fei'",
+   "note": "Han Fei <- Xunzi (his student)"
+  },
+  {
+   "from": "Q28959",
+   "to": "Q9333",
+   "confidence": "consensus",
+   "source": "SEP, 'Han Fei'",
+   "note": "Han Fei <- Laozi (Legalist reading of the Dao; commentary)"
+  },
+  {
+   "from": "Q47739",
+   "to": "Q9333",
+   "confidence": "consensus",
+   "source": "SEP, 'Zhuangzi'",
+   "note": "Zhuangzi <- Laozi (Daoist tradition; relationship debated)"
+  },
+  {
+   "from": "Q434429",
+   "to": "Q9333",
+   "confidence": "consensus",
+   "source": "Britannica, 'Liezi'",
+   "note": "Liezi <- Laozi (Daoist lineage)"
+  },
+  {
+   "from": "Q459865",
+   "to": "Q9333",
+   "confidence": "documented",
+   "source": "Britannica, 'Wang Bi'",
+   "note": "Wang Bi <- Laozi (his commentary on the Daodejing)"
+  },
+  {
+   "from": "Q445626",
+   "to": "Q4604",
+   "confidence": "documented",
+   "source": "Britannica, 'Dong Zhongshu'",
+   "note": "Dong Zhongshu <- Confucius (Han Confucian state orthodoxy)"
+  },
+  {
+   "from": "Q318998",
+   "to": "Q188903",
+   "confidence": "documented",
+   "source": "Britannica, 'Han Yu'",
+   "note": "Han Yu <- Mencius (elevated Mencius; Confucian revival)"
+  },
+  {
+   "from": "Q558192",
+   "to": "Q197962",
+   "confidence": "documented",
+   "source": "SEP, 'Zhu Xi'",
+   "note": "Cheng Hao <- Zhou Dunyi"
+  },
+  {
+   "from": "Q558380",
+   "to": "Q197962",
+   "confidence": "documented",
+   "source": "SEP, 'Zhu Xi'",
+   "note": "Cheng Yi <- Zhou Dunyi"
+  },
+  {
+   "from": "Q558380",
+   "to": "Q197338",
+   "confidence": "consensus",
+   "source": "SEP, 'Zhu Xi'",
+   "note": "Cheng Yi <- Zhang Zai (his uncle; qi)"
+  },
+  {
+   "from": "Q9397",
+   "to": "Q558380",
+   "confidence": "documented",
+   "source": "SEP, 'Zhu Xi'",
+   "note": "Zhu Xi <- Cheng Yi (via the Yang Shi lineage)"
+  },
+  {
+   "from": "Q9397",
+   "to": "Q197962",
+   "confidence": "documented",
+   "source": "SEP, 'Zhu Xi'",
+   "note": "Zhu Xi <- Zhou Dunyi (stillness/activity)"
+  },
+  {
+   "from": "Q9397",
+   "to": "Q197338",
+   "confidence": "documented",
+   "source": "SEP, 'Zhu Xi'",
+   "note": "Zhu Xi <- Zhang Zai (qi)"
+  },
+  {
+   "from": "Q9397",
+   "to": "Q558192",
+   "confidence": "documented",
+   "source": "SEP, 'Zhu Xi'",
+   "note": "Zhu Xi <- Cheng Hao"
+  },
+  {
+   "from": "Q9397",
+   "to": "Q188903",
+   "confidence": "documented",
+   "source": "SEP, 'Zhu Xi'",
+   "note": "Zhu Xi <- Mencius (innate goodness; sagehood)"
+  },
+  {
+   "from": "Q9397",
+   "to": "Q4604",
+   "confidence": "documented",
+   "source": "SEP, 'Zhu Xi'",
+   "note": "Zhu Xi <- Confucius (Four Books)"
+  },
+  {
+   "from": "Q9397",
+   "to": "Q722288",
+   "confidence": "consensus",
+   "source": "SEP, 'Zhu Xi'",
+   "note": "Zhu Xi <- Shao Yong (observation of things)"
+  },
+  {
+   "from": "Q2466384",
+   "to": "Q188903",
+   "confidence": "consensus",
+   "source": "Britannica, 'Lu Jiuyuan'",
+   "note": "Lu Jiuyuan <- Mencius (the mind as innately moral)"
+  },
+  {
+   "from": "Q378462",
+   "to": "Q2466384",
+   "confidence": "documented",
+   "source": "SEP, 'Wang Yangming'",
+   "note": "Wang Yangming <- Lu Jiuyuan (Lu-Wang School of Mind)"
+  },
+  {
+   "from": "Q378462",
+   "to": "Q188903",
+   "confidence": "documented",
+   "source": "SEP, 'Wang Yangming'",
+   "note": "Wang Yangming <- Mencius (innate knowledge of the good)"
+  },
+  {
+   "from": "Q378462",
+   "to": "Q9397",
+   "confidence": "documented",
+   "source": "SEP, 'Wang Yangming'",
+   "note": "Wang Yangming <- Zhu Xi (critical reaction to li-study)"
+  },
+  {
+   "from": "Q714369",
+   "to": "Q9397",
+   "confidence": "consensus",
+   "source": "Britannica, 'Dai Zhen'",
+   "note": "Dai Zhen <- Zhu Xi (evidential critique)"
+  },
+  {
+   "from": "Q714369",
+   "to": "Q188903",
+   "confidence": "consensus",
+   "source": "Britannica, 'Dai Zhen'",
+   "note": "Dai Zhen <- Mencius (commentary on the meanings of terms)"
+  },
+  {
+   "from": "Q233340",
+   "to": "Q4604",
+   "confidence": "consensus",
+   "source": "Britannica, 'Matteo Ricci'",
+   "note": "Matteo Ricci <- Confucius (studied and transmitted Confucianism to Europe)"
+  },
+  {
+   "from": "Q9047",
+   "to": "Q4604",
+   "confidence": "consensus",
+   "source": "E. S. Nelson, 'Leibniz and China'; Leibniz, 'Discourse on the Natural Theology of the Chinese' (1716)",
+   "note": "Leibniz <- Confucius (engaged Confucius Sinarum Philosophus, 1687)"
+  },
+  {
+   "from": "Q9047",
+   "to": "Q9397",
+   "confidence": "contested",
+   "source": "E. S. Nelson, 'Leibniz and China'; Leibniz, 'Discourse on the Natural Theology of the Chinese' (1716)",
+   "note": "Leibniz <- Zhu Xi (Neo-Confucian li/qi; extent of dependence debated)"
+  },
+  {
+   "from": "Q9047",
+   "to": "Q233340",
+   "confidence": "consensus",
+   "source": "E. S. Nelson, 'Leibniz and China'; Leibniz, 'Discourse on the Natural Theology of the Chinese' (1716)",
+   "note": "Leibniz <- Jesuit China reports (Ricci/Longobardi as conduit)"
+  },
+  {
+   "from": "Q343167",
+   "to": "Q9047",
+   "confidence": "documented",
+   "source": "Britannica, 'Christian Wolff'",
+   "note": "Christian Wolff <- Leibniz"
+  },
+  {
+   "from": "Q343167",
+   "to": "Q4604",
+   "confidence": "consensus",
+   "source": "Britannica, 'Christian Wolff'",
+   "note": "Wolff <- Confucius (1721 Halle lecture on Chinese practical philosophy)"
+  },
+  {
+   "from": "Q9068",
+   "to": "Q4604",
+   "confidence": "contested",
+   "source": "Britannica, 'Voltaire'",
+   "note": "Voltaire <- Confucius (admired Confucian ethics as rational deism)"
+  },
+  {
+   "from": "Q48226",
+   "to": "Q4604",
+   "confidence": "documented",
+   "source": "SEP, 'Ralph Waldo Emerson'",
+   "note": "Emerson <- Confucianism (read avidly in Confucianism)"
+  },
+  {
+   "from": "Q171195",
+   "to": "Q9441",
+   "confidence": "documented",
+   "source": "SEP, 'Nagarjuna'",
+   "note": "Nagarjuna <- the Buddha (rejection of a substantial self)"
+  },
+  {
+   "from": "Q379905",
+   "to": "Q171195",
+   "confidence": "consensus",
+   "source": "Britannica, 'Asanga'",
+   "note": "Asanga <- Nagarjuna (Yogacara responds to Madhyamaka)"
+  },
+  {
+   "from": "Q316343",
+   "to": "Q379905",
+   "confidence": "documented",
+   "source": "SEP, 'Vasubandhu'",
+   "note": "Vasubandhu <- Asanga (his brother converted him to Mahayana Yogacara)"
+  },
+  {
+   "from": "Q558272",
+   "to": "Q316343",
+   "confidence": "documented",
+   "source": "SEP, 'Epistemology in Classical Indian Philosophy'",
+   "note": "Dignaga <- Vasubandhu (pupil; Buddhist logic)"
+  },
+  {
+   "from": "Q457990",
+   "to": "Q558272",
+   "confidence": "documented",
+   "source": "SEP, 'Epistemology in Classical Indian Philosophy'",
+   "note": "Dharmakirti <- Dignaga (developed his pramana logic)"
+  },
+  {
+   "from": "Q335247",
+   "to": "Q9441",
+   "confidence": "consensus",
+   "source": "Britannica, 'Buddhaghosa'",
+   "note": "Buddhaghosa <- the Buddha / Pali canon (Theravada commentary)"
+  },
+  {
+   "from": "Q42063",
+   "to": "Q316343",
+   "confidence": "consensus",
+   "source": "Britannica, 'Xuanzang'",
+   "note": "Xuanzang <- Vasubandhu/Asanga (brought Yogacara to China from Nalanda)"
+  },
+  {
+   "from": "Q42063",
+   "to": "Q558272",
+   "confidence": "consensus",
+   "source": "Britannica, 'Xuanzang'",
+   "note": "Xuanzang <- Dignaga (Buddhist logic)"
+  },
+  {
+   "from": "Q197778",
+   "to": "Q171195",
+   "confidence": "consensus",
+   "source": "Britannica, 'Zhiyi'",
+   "note": "Zhiyi <- Nagarjuna (Tiantai builds on Madhyamaka)"
+  },
+  {
+   "from": "Q345012",
+   "to": "Q187172",
+   "confidence": "consensus",
+   "source": "Britannica, 'Huineng'",
+   "note": "Huineng <- Bodhidharma (Chan patriarchal lineage)"
+  },
+  {
+   "from": "Q449943",
+   "to": "Q197778",
+   "confidence": "documented",
+   "source": "Britannica, 'Saicho'",
+   "note": "Saicho <- Zhiyi (Tendai = Tiantai)"
+  },
+  {
+   "from": "Q318064",
+   "to": "Q187172",
+   "confidence": "consensus",
+   "source": "Britannica, 'Dogen'",
+   "note": "Dogen <- Chan/Bodhidharma lineage (Soto Zen)"
+  },
+  {
+   "from": "Q512934",
+   "to": "Q507980",
+   "confidence": "documented",
+   "source": "Britannica, 'Shinran'",
+   "note": "Shinran <- Honen (his teacher; Pure Land)"
+  },
+  {
+   "from": "Q311478",
+   "to": "Q197778",
+   "confidence": "consensus",
+   "source": "Britannica, 'Nichiren'",
+   "note": "Nichiren <- Zhiyi/Tendai (primacy of the Lotus Sutra)"
+  },
+  {
+   "from": "Q320150",
+   "to": "Q171195",
+   "confidence": "consensus",
+   "source": "Britannica, 'Atisa'",
+   "note": "Atisa <- Nagarjuna (Madhyamaka)"
+  },
+  {
+   "from": "Q323439",
+   "to": "Q320150",
+   "confidence": "documented",
+   "source": "Britannica, 'Tsongkhapa'",
+   "note": "Tsongkhapa <- Atisa (Kadam -> Gelug)"
+  },
+  {
+   "from": "Q323439",
+   "to": "Q171195",
+   "confidence": "documented",
+   "source": "SEP, 'Nagarjuna'",
+   "note": "Tsongkhapa <- Nagarjuna (Prasangika-Madhyamaka, official Tibetan position)"
+  },
+  {
+   "from": "Q323439",
+   "to": "Q457990",
+   "confidence": "consensus",
+   "source": "Britannica, 'Tsongkhapa'",
+   "note": "Tsongkhapa <- Dharmakirti (pramana)"
+  },
+  {
+   "from": "Q1394797",
+   "to": "Q45125",
+   "confidence": "documented",
+   "source": "SEP, 'Kyoto School'",
+   "note": "Tanabe <- Nishida (Kyoto School)"
+  },
+  {
+   "from": "Q1993564",
+   "to": "Q45125",
+   "confidence": "documented",
+   "source": "SEP, 'Kyoto School'",
+   "note": "Nishitani <- Nishida (his student)"
+  },
+  {
+   "from": "Q1993564",
+   "to": "Q48301",
+   "confidence": "documented",
+   "source": "SEP, 'Kyoto School'",
+   "note": "Nishitani <- Heidegger (studied under him in Freiburg)"
+  },
+  {
+   "from": "Q45125",
+   "to": "Q44847",
+   "confidence": "consensus",
+   "source": "SEP, 'Kyoto School'",
+   "note": "Nishida <- D.T. Suzuki (lifelong friend; Zen)"
+  },
+  {
+   "from": "Q45125",
+   "to": "Q318064",
+   "confidence": "consensus",
+   "source": "SEP, 'Kyoto School'",
+   "note": "Nishida <- Dogen (Zen)"
+  },
+  {
+   "from": "Q4840620",
+   "to": "aug:upanishads",
+   "confidence": "documented",
+   "source": "SEP, 'Sankara'",
+   "note": "Badarayana <- Upanishads (Brahma Sutras systematize them)"
+  },
+  {
+   "from": "Q1771062",
+   "to": "aug:upanishads",
+   "confidence": "documented",
+   "source": "SEP, 'Sankara'",
+   "note": "Gaudapada <- Upanishads (Mandukya-karika)"
+  },
+  {
+   "from": "Q180967",
+   "to": "Q1771062",
+   "confidence": "documented",
+   "source": "SEP, 'Sankara'",
+   "note": "Shankara <- Gaudapada (via his teacher Govinda)"
+  },
+  {
+   "from": "Q180967",
+   "to": "Q4840620",
+   "confidence": "documented",
+   "source": "SEP, 'Sankara'",
+   "note": "Shankara <- Badarayana (commentary on the Brahma Sutras)"
+  },
+  {
+   "from": "Q180967",
+   "to": "aug:upanishads",
+   "confidence": "documented",
+   "source": "SEP, 'Sankara'",
+   "note": "Shankara <- Upanishads (nondual brahman as their subject)"
+  },
+  {
+   "from": "Q1741798",
+   "to": "Q4840620",
+   "confidence": "consensus",
+   "source": "IEP, 'Ramanuja'",
+   "note": "Ramanuja <- Badarayana (Sri Bhashya on the Brahma Sutras)"
+  },
+  {
+   "from": "Q1741798",
+   "to": "Q180967",
+   "confidence": "documented",
+   "source": "SEP, 'Sankara'",
+   "note": "Ramanuja <- Shankara (Vishishtadvaita opposes Advaita)"
+  },
+  {
+   "from": "Q335371",
+   "to": "Q4840620",
+   "confidence": "consensus",
+   "source": "Britannica, 'Madhva'",
+   "note": "Madhva <- Badarayana (own Brahma Sutra commentary)"
+  },
+  {
+   "from": "Q335371",
+   "to": "Q180967",
+   "confidence": "documented",
+   "source": "SEP, 'Sankara'",
+   "note": "Madhva <- Shankara (Dvaita opposes Advaita nondualism)"
+  },
+  {
+   "from": "Q870262",
+   "to": "Q335371",
+   "confidence": "consensus",
+   "source": "Britannica, 'Chaitanya'",
+   "note": "Chaitanya <- Madhva (Brahma-Madhva-Gaudiya lineage)"
+  },
+  {
+   "from": "Q231680",
+   "to": "Q574355",
+   "confidence": "consensus",
+   "source": "Britannica, 'Patanjali'",
+   "note": "Patanjali (Yoga Sutras) <- Kapila/Samkhya (shared metaphysics)"
+  },
+  {
+   "from": "Q774847",
+   "to": "Q2758596",
+   "confidence": "documented",
+   "source": "IEP, 'Kumarila Bhatta'",
+   "note": "Kumarila Bhatta <- Jaimini (Mimamsa exegesis)"
+  },
+  {
+   "from": "Q2758596",
+   "to": "aug:vedas",
+   "confidence": "consensus",
+   "source": "Britannica, 'Jaimini'",
+   "note": "Jaimini <- Vedas (Mimamsa as ritual exegesis)"
+  },
+  {
+   "from": "Q335161",
+   "to": "aug:upanishads",
+   "confidence": "consensus",
+   "source": "SEP, 'Bhartrhari'",
+   "note": "Bhartrhari <- Upanishadic sabda-brahman (word as absolute)"
+  },
+  {
+   "from": "Q47478",
+   "to": "Q183126",
+   "confidence": "documented",
+   "source": "Britannica, 'Vivekananda'",
+   "note": "Vivekananda <- Ramakrishna (his guru)"
+  },
+  {
+   "from": "Q47478",
+   "to": "Q180967",
+   "confidence": "documented",
+   "source": "Britannica, 'Vivekananda'",
+   "note": "Vivekananda <- Shankara (Advaita Vedanta)"
+  },
+  {
+   "from": "Q288441",
+   "to": "Q180967",
+   "confidence": "consensus",
+   "source": "Britannica, 'Ramana Maharshi'",
+   "note": "Ramana Maharshi <- Shankara (Advaita)"
+  },
+  {
+   "from": "Q192207",
+   "to": "aug:upanishads",
+   "confidence": "consensus",
+   "source": "Britannica, 'Sri Aurobindo'",
+   "note": "Aurobindo <- Upanishads/Vedanta"
+  },
+  {
+   "from": "Q83322",
+   "to": "Q312551",
+   "confidence": "consensus",
+   "source": "Britannica, 'Guru Nanak'",
+   "note": "Guru Nanak <- Kabir/Sant tradition (Kabir's hymns in the Adi Granth)"
+  },
+  {
+   "from": "aug:upanishads",
+   "to": "aug:vedas",
+   "confidence": "consensus",
+   "source": "Britannica, 'Upanishad'",
+   "note": "Upanishads <- Vedas (culminating 'end of the Veda')"
+  },
+  {
+   "from": "Q9441",
+   "to": "aug:sramana",
+   "confidence": "consensus",
+   "source": "Britannica, 'Sramana'",
+   "note": "the Buddha <- Sramana ascetic movement"
+  },
+  {
+   "from": "Q9422",
+   "to": "aug:sramana",
+   "confidence": "consensus",
+   "source": "Britannica, 'Sramana'",
+   "note": "Mahavira <- Sramana ascetic movement"
+  },
+  {
+   "from": "aug:charvaka",
+   "to": "aug:sramana",
+   "confidence": "consensus",
+   "source": "IEP, 'Lokayata/Carvaka'",
+   "note": "Charvaka/Lokayata <- heterodox Sramana milieu"
+  },
+  {
+   "from": "Q38193",
+   "to": "aug:upanishads",
+   "confidence": "documented",
+   "source": "SEP, 'Arthur Schopenhauer'",
+   "note": "Schopenhauer <- Upanishads (read them from 1814; Brahman/Atman)"
+  },
+  {
+   "from": "Q38193",
+   "to": "Q9441",
+   "confidence": "consensus",
+   "source": "SEP, 'Arthur Schopenhauer'",
+   "note": "Schopenhauer <- Buddhism (life as unavoidable suffering)"
+  },
+  {
+   "from": "Q9358",
+   "to": "Q38193",
+   "confidence": "documented",
+   "source": "SEP, 'Arthur Schopenhauer'",
+   "note": "Nietzsche <- Schopenhauer (will; 'become what one is')"
+  },
+  {
+   "from": "Q26714",
+   "to": "Q38193",
+   "confidence": "documented",
+   "source": "Britannica, 'Paul Deussen'",
+   "note": "Deussen <- Schopenhauer (founded the Schopenhauer Society)"
+  },
+  {
+   "from": "Q26714",
+   "to": "aug:upanishads",
+   "confidence": "documented",
+   "source": "Britannica, 'Paul Deussen'",
+   "note": "Deussen <- Upanishads (translated the Sixty Upanishads)"
+  },
+  {
+   "from": "Q48226",
+   "to": "aug:upanishads",
+   "confidence": "documented",
+   "source": "SEP, 'Ralph Waldo Emerson'",
+   "note": "Emerson <- Hindu/Vedanta thought (read avidly in Hindu philosophy)"
+  },
+  {
+   "from": "Q48226",
+   "to": "Q859",
+   "confidence": "documented",
+   "source": "SEP, 'Ralph Waldo Emerson'",
+   "note": "Emerson <- Plato and the Neoplatonist line"
+  },
+  {
+   "from": "Q131149",
+   "to": "Q48226",
+   "confidence": "documented",
+   "source": "Britannica, 'Henry David Thoreau'",
+   "note": "Thoreau <- Emerson (friend and mentor)"
+  },
+  {
+   "from": "Q131149",
+   "to": "aug:upanishads",
+   "confidence": "documented",
+   "source": "Britannica, 'Henry David Thoreau'",
+   "note": "Thoreau <- Vedas/Bhagavad Gita (Walden cites Indian scripture)"
+  },
+  {
+   "from": "Q81438",
+   "to": "Q48226",
+   "confidence": "consensus",
+   "source": "Britannica, 'Walt Whitman'",
+   "note": "Whitman <- Emerson (Leaves of Grass praised by Emerson)"
+  },
+  {
+   "from": "Q81447",
+   "to": "Q47478",
+   "confidence": "consensus",
+   "source": "Britannica, 'Aldous Huxley'",
+   "note": "Aldous Huxley <- Vedanta/Vivekananda (The Perennial Philosophy)"
+  },
+  {
+   "from": "Q203922",
+   "to": "Q35811",
+   "confidence": "documented",
+   "source": "Britannica, 'Mani'",
+   "note": "Mani <- Zoroaster (Manichaeism syncretizes Zoroastrian dualism)"
+  },
+  {
+   "from": "Q203922",
+   "to": "Q9441",
+   "confidence": "consensus",
+   "source": "Britannica, 'Mani'",
+   "note": "Mani <- Buddhism (incorporated the Buddha as a prior messenger)"
+  },
+  {
+   "from": "Q665541",
+   "to": "Q213850",
+   "confidence": "consensus",
+   "source": "Britannica, 'Hosea'",
+   "note": "Hosea <- Amos (8th-c. northern prophetic tradition)"
+  },
+  {
+   "from": "Q188794",
+   "to": "Q213850",
+   "confidence": "consensus",
+   "source": "Britannica, 'Isaiah'",
+   "note": "Isaiah <- Amos (classical prophetic ethics)"
+  },
+  {
+   "from": "Q158825",
+   "to": "Q665541",
+   "confidence": "consensus",
+   "source": "Britannica, 'Jeremiah'",
+   "note": "Jeremiah <- Hosea (scholars note Hosea's influence on Jeremiah)"
+  },
+  {
+   "from": "Q194064",
+   "to": "Q158825",
+   "confidence": "consensus",
+   "source": "Britannica, 'Ezekiel'",
+   "note": "Ezekiel <- Jeremiah (exilic contemporaries)"
+  },
+  {
+   "from": "Q2844817",
+   "to": "Q573606",
+   "confidence": "consensus",
+   "source": "M. Lichtheim, Ancient Egyptian Literature II; A. Erman (1924) on Amenemope / Proverbs 22:17-24:34",
+   "note": "Amenemope <- Ptahhotep (Egyptian sebayt 'instruction' genre)"
+  },
+  {
+   "from": "aug:book-of-proverbs",
+   "to": "Q2844817",
+   "confidence": "consensus",
+   "source": "M. Lichtheim, Ancient Egyptian Literature II; A. Erman (1924) on Amenemope / Proverbs 22:17-24:34",
+   "note": "Proverbs 22:17-24:34 <- Instruction of Amenemope (dependence widely held; nature debated)"
+  },
+  {
+   "from": "Q7961364",
+   "to": "Q2896591",
+   "confidence": "documented",
+   "source": "IEP, 'Zera Yacob'",
+   "note": "Walda Heywat <- Zera Yacob (disciple; wrote the sequel Hatata)"
+  },
+  {
+   "from": "Q595486",
+   "to": "Q343167",
+   "confidence": "consensus",
+   "source": "SEP, 'Africana Philosophy'",
+   "note": "Anton Wilhelm Amo <- Christian Wolff (Halle/Wittenberg Wolffian milieu)"
+  },
+  {
+   "from": "Q595486",
+   "to": "Q9047",
+   "confidence": "consensus",
+   "source": "SEP, 'Africana Philosophy'",
+   "note": "Anton Wilhelm Amo <- Leibniz (German rationalism)"
+  },
+  {
+   "from": "Q343645",
+   "to": "aug:tlamatinime",
+   "confidence": "inferred-oral",
+   "source": "M. Leon-Portilla, Aztec Thought and Culture",
+   "note": "Nezahualcoyotl worked within the Nahua tlamatinime tradition (oral, transcribed post-conquest)"
+  },
+  {
+   "from": "Q160362",
+   "to": "Q868",
+   "confidence": "documented",
+   "source": "Britannica, 'Theophrastus'",
+   "note": "Theophrastus <- Aristotle (successor as head of the Lyceum)"
+  },
+  {
+   "from": "Q41523",
+   "to": "Q859",
+   "confidence": "consensus",
+   "source": "Britannica, 'Plutarch'",
+   "note": "Plutarch <- Plato (Middle Platonism)"
+  },
+  {
+   "from": "Q183144",
+   "to": "Q381874",
+   "confidence": "documented",
+   "source": "Britannica, 'Musonius Rufus'",
+   "note": "Epictetus <- Musonius Rufus (his teacher)"
+  },
+  {
+   "from": "Q913",
+   "to": "Q83041",
+   "confidence": "contested",
+   "source": "Britannica, 'Anaxagoras'",
+   "note": "Socrates <- Anaxagoras (engaged then dissatisfied; Phaedo)"
+  },
+  {
+   "from": "Q868",
+   "to": "Q41980",
+   "confidence": "consensus",
+   "source": "Britannica, 'Aristotle'",
+   "note": "Aristotle <- Democritus (critical engagement with atomism)"
+  },
+  {
+   "from": "Q203445",
+   "to": "Q868",
+   "confidence": "documented",
+   "source": "Britannica, 'Porphyry'",
+   "note": "Porphyry <- Aristotle (Isagoge introduces the Categories)"
+  },
+  {
+   "from": "Q134189",
+   "to": "Q868",
+   "confidence": "consensus",
+   "source": "SEP, 'Plotinus'",
+   "note": "Plotinus <- Aristotle (nous, the categories)"
+  },
+  {
+   "from": "Q1541",
+   "to": "Q859",
+   "confidence": "consensus",
+   "source": "Britannica, 'Cicero'",
+   "note": "Cicero <- Plato / Academic tradition"
+  },
+  {
+   "from": "Q2054",
+   "to": "Q211411",
+   "confidence": "consensus",
+   "source": "SEP, 'Stoicism'",
+   "note": "Seneca <- Chrysippus (Stoic doctrine)"
+  },
+  {
+   "from": "Q192313",
+   "to": "Q41980",
+   "confidence": "consensus",
+   "source": "SEP, 'Pyrrho'",
+   "note": "Pyrrho <- Democritus (and Anaxarchus)"
+  },
+  {
+   "from": "Q184500",
+   "to": "Q312816",
+   "confidence": "documented",
+   "source": "Britannica, 'John Scotus Eriugena'",
+   "note": "Eriugena <- Pseudo-Dionysius (translated the corpus into Latin)"
+  },
+  {
+   "from": "Q184500",
+   "to": "Q191734",
+   "confidence": "consensus",
+   "source": "Britannica, 'John Scotus Eriugena'",
+   "note": "Eriugena <- Gregory of Nyssa"
+  },
+  {
+   "from": "Q191734",
+   "to": "Q170472",
+   "confidence": "consensus",
+   "source": "Britannica, 'Gregory of Nyssa'",
+   "note": "Gregory of Nyssa <- Origen (Cappadocian Origenism)"
+  },
+  {
+   "from": "Q76548",
+   "to": "Q184500",
+   "confidence": "consensus",
+   "source": "Britannica, 'Meister Eckhart'",
+   "note": "Eckhart <- Eriugena (apophatic Christian Neoplatonism)"
+  },
+  {
+   "from": "Q43347",
+   "to": "Q194091",
+   "confidence": "consensus",
+   "source": "Britannica, 'Rumi'",
+   "note": "Rumi <- Attar of Nishapur (Persian Sufi poetic lineage)"
+  },
+  {
+   "from": "Q194091",
+   "to": "Q735601",
+   "confidence": "consensus",
+   "source": "Britannica, 'Attar of Nishapur'",
+   "note": "Attar <- Junayd and the early Sufi saints (Tadhkirat al-Awliya)"
+  },
+  {
+   "from": "Q46420",
+   "to": "Q9546",
+   "confidence": "contested",
+   "source": "Britannica, 'Ibn Arabi'",
+   "note": "Ibn Arabi <- al-Ghazali (Sufi metaphysical milieu)"
+  },
+  {
+   "from": "Q491558",
+   "to": "Q8011",
+   "confidence": "contested",
+   "source": "Britannica, 'Ibn Taymiyyah'",
+   "note": "Ibn Taymiyya <- Avicenna (as chief target of his critique of falsafa)"
+  },
+  {
+   "from": "Q43936",
+   "to": "Q868",
+   "confidence": "consensus",
+   "source": "Britannica, 'William of Ockham'",
+   "note": "Ockham <- Aristotle (logic)"
+  },
+  {
+   "from": "Q190089",
+   "to": "Q8018",
+   "confidence": "consensus",
+   "source": "Britannica, 'Duns Scotus'",
+   "note": "Duns Scotus <- Augustine (will, illumination)"
+  },
+  {
+   "from": "Q4295",
+   "to": "Q868",
+   "confidence": "consensus",
+   "source": "Britannica, 'Peter Abelard'",
+   "note": "Abelard <- Aristotle (logic of universals)"
+  },
+  {
+   "from": "Q9438",
+   "to": "Q1541",
+   "confidence": "consensus",
+   "source": "Britannica, 'Thomas Aquinas'",
+   "note": "Aquinas <- Cicero (natural law)"
+  },
+  {
+   "from": "Q558275",
+   "to": "Q171195",
+   "confidence": "documented",
+   "source": "Britannica, 'Aryadeva'",
+   "note": "Aryadeva <- Nagarjuna (his direct pupil)"
+  },
+  {
+   "from": "Q456963",
+   "to": "Q171195",
+   "confidence": "documented",
+   "source": "Britannica, 'Chandrakirti'",
+   "note": "Chandrakirti <- Nagarjuna (Prasangika commentary on the MMK)"
+  },
+  {
+   "from": "Q456963",
+   "to": "Q558275",
+   "confidence": "consensus",
+   "source": "Britannica, 'Chandrakirti'",
+   "note": "Chandrakirti <- Aryadeva"
+  },
+  {
+   "from": "Q323439",
+   "to": "Q456963",
+   "confidence": "consensus",
+   "source": "Britannica, 'Tsongkhapa'",
+   "note": "Tsongkhapa <- Chandrakirti (Prasangika)"
+  },
+  {
+   "from": "Q316343",
+   "to": "Q9441",
+   "confidence": "consensus",
+   "source": "SEP, 'Vasubandhu'",
+   "note": "Vasubandhu <- Abhidharma / the Buddha (the Abhidharmakosa)"
+  },
+  {
+   "from": "Q231582",
+   "to": "Q9441",
+   "confidence": "consensus",
+   "source": "Britannica, 'Padmasambhava'",
+   "note": "Padmasambhava <- the Buddha (tantric Vajrayana)"
+  },
+  {
+   "from": "Q197778",
+   "to": "Q9441",
+   "confidence": "consensus",
+   "source": "Britannica, 'Zhiyi'",
+   "note": "Zhiyi <- the Buddha (the Lotus Sutra)"
+  },
+  {
+   "from": "Q187172",
+   "to": "Q9441",
+   "confidence": "consensus",
+   "source": "Britannica, 'Bodhidharma'",
+   "note": "Bodhidharma <- the Buddha (Chan 'mind-to-mind' transmission)"
+  },
+  {
+   "from": "Q222227",
+   "to": "Q9441",
+   "confidence": "consensus",
+   "source": "Britannica, 'Kukai'",
+   "note": "Kukai <- esoteric Mahayana Buddhism"
+  },
+  {
+   "from": "Q379577",
+   "to": "Q203060",
+   "confidence": "documented",
+   "source": "Britannica, 'Marpa'",
+   "note": "Marpa <- Naropa (received the Kagyu transmission in India)"
+  },
+  {
+   "from": "Q58431",
+   "to": "Q379577",
+   "confidence": "documented",
+   "source": "Britannica, 'Milarepa'",
+   "note": "Milarepa <- Marpa (his guru)"
+  },
+  {
+   "from": "Q507980",
+   "to": "Q1013023",
+   "confidence": "documented",
+   "source": "Britannica, 'Honen'",
+   "note": "Honen <- Shandao (Chinese Pure Land patriarch)"
+  },
+  {
+   "from": "Q512934",
+   "to": "Q1013023",
+   "confidence": "consensus",
+   "source": "Britannica, 'Shinran'",
+   "note": "Shinran <- Shandao (Pure Land nianfo)"
+  },
+  {
+   "from": "Q553678",
+   "to": "Q197172",
+   "confidence": "consensus",
+   "source": "Britannica, 'Ge Hong'",
+   "note": "Ge Hong <- Celestial Masters milieu (Daoist alchemy)"
+  },
+  {
+   "from": "Q197172",
+   "to": "Q9333",
+   "confidence": "consensus",
+   "source": "Britannica, 'Zhang Daoling'",
+   "note": "Zhang Daoling <- Laozi (deified as Daoism's founder)"
+  },
+  {
+   "from": "Q335161",
+   "to": "Q350670",
+   "confidence": "documented",
+   "source": "SEP, 'Bhartrhari'",
+   "note": "Bhartrhari <- Panini (Vakyapadiya on Paninian grammar)"
+  },
+  {
+   "from": "Q231680",
+   "to": "Q350670",
+   "confidence": "contested",
+   "source": "Britannica, 'Patanjali'",
+   "note": "Patanjali (Mahabhasya) <- Panini (identity with the Yoga-sutra author is debated)"
+  },
+  {
+   "from": "Q2075639",
+   "to": "Q4314218",
+   "confidence": "consensus",
+   "source": "IEP, 'Ramanuja'",
+   "note": "Yamunacharya <- Nathamuni (Sri Vaishnava lineage)"
+  },
+  {
+   "from": "Q1741798",
+   "to": "Q2075639",
+   "confidence": "consensus",
+   "source": "IEP, 'Ramanuja'",
+   "note": "Ramanuja <- Yamunacharya (his predecessor at Srirangam)"
+  },
+  {
+   "from": "Q335371",
+   "to": "Q1741798",
+   "confidence": "consensus",
+   "source": "Britannica, 'Madhva'",
+   "note": "Madhva <- Ramanuja (Vaishnava Vedanta; critical divergence)"
+  },
+  {
+   "from": "Q1771062",
+   "to": "Q171195",
+   "confidence": "contested",
+   "source": "Britannica, 'Gaudapada'",
+   "note": "Gaudapada <- Buddhist Madhyamaka (parallels widely noted; debated)"
+  },
+  {
+   "from": "Q180967",
+   "to": "Q171195",
+   "confidence": "contested",
+   "source": "SEP, 'Sankara'",
+   "note": "Shankara <- Buddhist thought (the 'crypto-Buddhist' charge he refuted)"
+  },
+  {
+   "from": "Q192207",
+   "to": "Q47478",
+   "confidence": "consensus",
+   "source": "Britannica, 'Sri Aurobindo'",
+   "note": "Aurobindo <- Vivekananda (neo-Vedanta)"
+  },
+  {
+   "from": "Q9397",
+   "to": "Q318998",
+   "confidence": "consensus",
+   "source": "Britannica, 'Zhu Xi'",
+   "note": "Zhu Xi <- Han Yu (orthodox Confucian transmission, daotong)"
+  },
+  {
+   "from": "Q378462",
+   "to": "Q4604",
+   "confidence": "consensus",
+   "source": "SEP, 'Wang Yangming'",
+   "note": "Wang Yangming <- Confucius"
+  },
+  {
+   "from": "Q378462",
+   "to": "Q345012",
+   "confidence": "contested",
+   "source": "SEP, 'Wang Yangming'",
+   "note": "Wang Yangming <- Chan Buddhism (sudden insight; he denied direct debt)"
+  },
+  {
+   "from": "Q558192",
+   "to": "Q197338",
+   "confidence": "consensus",
+   "source": "SEP, 'Zhu Xi'",
+   "note": "Cheng Hao <- Zhang Zai (qi)"
+  },
+  {
+   "from": "Q188903",
+   "to": "Q272411",
+   "confidence": "contested",
+   "source": "SEP, 'Mencius'",
+   "note": "Mencius <- Mozi (as polemical target: refuting Mohist impartial care)"
+  },
+  {
+   "from": "Q445626",
+   "to": "Q216072",
+   "confidence": "contested",
+   "source": "Britannica, 'Dong Zhongshu'",
+   "note": "Dong Zhongshu <- Xunzi (ritual, cosmology)"
+  },
+  {
+   "from": "Q41532",
+   "to": "Q38193",
+   "confidence": "consensus",
+   "source": "Britannica, 'Carl Jung'",
+   "note": "Jung <- Schopenhauer (will; the unconscious)"
+  },
+  {
+   "from": "Q41532",
+   "to": "Q9333",
+   "confidence": "contested",
+   "source": "Britannica, 'Carl Jung'",
+   "note": "Jung <- Daoist/Chinese thought (synchronicity, the I Ching)"
+  },
+  {
+   "from": "Q11104",
+   "to": "Q868",
+   "confidence": "consensus",
+   "source": "Britannica, 'Ibn al-Haytham'",
+   "note": "Ibn al-Haytham <- Aristotle / Ptolemy (critical reform of optics)"
+  },
+  {
+   "from": "Q35900",
+   "to": "Q8011",
+   "confidence": "consensus",
+   "source": "Britannica, 'Omar Khayyam'",
+   "note": "Omar Khayyam <- Avicenna (Peripatetic philosophy)"
+  },
+  {
+   "from": "Q213850",
+   "to": "Q133507",
+   "confidence": "consensus",
+   "source": "Britannica, 'Amos'",
+   "note": "Amos <- Elijah (earlier prophetic tradition)"
+  },
+  {
+   "from": "Q188794",
+   "to": "Q133507",
+   "confidence": "consensus",
+   "source": "Britannica, 'Isaiah'",
+   "note": "Isaiah <- Elijah (prophetic archetype)"
+  },
+  {
+   "from": "Q194064",
+   "to": "Q188794",
+   "confidence": "consensus",
+   "source": "Britannica, 'Ezekiel'",
+   "note": "Ezekiel <- Isaiah (prophetic corpus)"
+  },
+  {
+   "from": "Q48226",
+   "to": "Q9312",
+   "confidence": "consensus",
+   "source": "SEP, 'Ralph Waldo Emerson'",
+   "note": "Emerson <- Kant (post-Kantian idealism, via Coleridge)"
+  },
+  {
+   "from": "Q171303",
+   "to": "Q913",
+   "confidence": "consensus",
+   "source": "SEP, 'Stoicism'",
+   "note": "Zeno of Citium <- Socrates (Socratic ethical root of Stoicism)"
+  },
+  {
+   "from": "Q83375",
+   "to": "Q10261",
+   "confidence": "consensus",
+   "source": "Britannica, 'Empedocles'",
+   "note": "Empedocles <- Pythagoras (transmigration of souls)"
+  },
+  {
+   "from": "Q179785",
+   "to": "Q125551",
+   "confidence": "contested",
+   "source": "Britannica, 'Gorgias'",
+   "note": "Gorgias <- Parmenides ('On Non-Being' inverts Eleatic being)"
+  },
+  {
+   "from": "Q169243",
+   "to": "Q41980",
+   "confidence": "contested",
+   "source": "Britannica, 'Protagoras'",
+   "note": "Protagoras <- Democritus (both of Abdera)"
+  },
+  {
+   "from": "Q179759",
+   "to": "Q271809",
+   "confidence": "consensus",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "al-Kindi circle <- Proclus (the Arabic 'Book of Causes' reworks the Elements of Theology)"
+  },
+  {
+   "from": "Q9438",
+   "to": "Q271809",
+   "confidence": "consensus",
+   "source": "Britannica, 'Thomas Aquinas'",
+   "note": "Aquinas <- Proclus (via the Liber de Causis, which he identified as Proclan)"
+  },
+  {
+   "from": "Q9438",
+   "to": "Q239355",
+   "confidence": "contested",
+   "source": "SEP, 'Influence of Arabic and Islamic Philosophy on the Latin West'",
+   "note": "Aquinas <- ibn Gabirol (engaged the Fons Vitae on universal hylomorphism)"
+  },
+  {
+   "from": "Q216072",
+   "to": "Q272411",
+   "confidence": "contested",
+   "source": "SEP, 'Xunzi'",
+   "note": "Xunzi <- Mozi (critical engagement with Mohism)"
+  },
+  {
+   "from": "Q197962",
+   "to": "Q9333",
+   "confidence": "contested",
+   "source": "Britannica, 'Zhou Dunyi'",
+   "note": "Zhou Dunyi <- Daoist sources (lineage of the Taiji diagram)"
+  },
+  {
+   "from": "Q320150",
+   "to": "Q456963",
+   "confidence": "consensus",
+   "source": "Britannica, 'Atisa'",
+   "note": "Atisa <- Chandrakirti (Prasangika Madhyamaka)"
+  },
+  {
+   "from": "Q1013023",
+   "to": "Q9441",
+   "confidence": "consensus",
+   "source": "Britannica, 'Shandao'",
+   "note": "Shandao <- the Buddha (the Pure Land sutras)"
+  },
+  {
+   "from": "Q320619",
+   "to": "Q335161",
+   "confidence": "contested",
+   "source": "Britannica, 'Abhinavagupta'",
+   "note": "Abhinavagupta <- Bhartrhari (linguistic/sonic monism)"
+  },
+  {
+   "from": "Q333703",
+   "to": "Q9546",
+   "confidence": "consensus",
+   "source": "Britannica, 'Fakhr al-Din al-Razi'",
+   "note": "Fakhr al-Din al-Razi <- al-Ghazali (Ash'ari kalam)"
+  },
+  {
+   "from": "Q9546",
+   "to": "Q735601",
+   "confidence": "consensus",
+   "source": "Britannica, 'al-Ghazali'",
+   "note": "al-Ghazali <- Junayd (Sufi path in the Ihya)"
+  },
+  {
+   "from": "Q42063",
+   "to": "Q457990",
+   "confidence": "consensus",
+   "source": "Britannica, 'Xuanzang'",
+   "note": "Xuanzang <- Dharmakirti (Buddhist logic studied at Nalanda)"
+  },
+  {
+   "from": "Q311478",
+   "to": "Q449943",
+   "confidence": "consensus",
+   "source": "Britannica, 'Nichiren'",
+   "note": "Nichiren <- Saicho (Tendai/Lotus foundation in Japan)"
+  },
+  {
+   "from": "Q45125",
+   "to": "Q9235",
+   "confidence": "consensus",
+   "source": "SEP, 'Kyoto School'",
+   "note": "Nishida <- Hegel (dialectic, in the logic of basho)"
+  },
+  {
+   "from": "Q9068",
+   "to": "Q1541",
+   "confidence": "consensus",
+   "source": "Britannica, 'Voltaire'",
+   "note": "Voltaire <- Cicero (classical rationalist deism)"
+  },
+  {
+   "from": "Q131149",
+   "to": "Q4604",
+   "confidence": "consensus",
+   "source": "Britannica, 'Henry David Thoreau'",
+   "note": "Thoreau <- Confucius (quotes the Confucian classics in Walden)"
+  },
+  {
+   "from": "Q9358",
+   "to": "Q41155",
+   "confidence": "contested",
+   "source": "Britannica, 'Friedrich Nietzsche'",
+   "note": "Nietzsche <- Heraclitus (flux, eternal becoming)"
+  },
+  {
+   "from": "Q38193",
+   "to": "Q859",
+   "confidence": "consensus",
+   "source": "Britannica, 'Arthur Schopenhauer'",
+   "note": "Schopenhauer <- Plato (the Platonic Ideas in WWR)"
+  },
+  {
+   "from": "Q170472",
+   "to": "Q189597",
+   "confidence": "contested",
+   "source": "Britannica, 'Origen'",
+   "note": "Origen <- Philo (allegorical exegesis of scripture)"
+  },
+  {
+   "from": "Q353633",
+   "to": "Q868",
+   "confidence": "consensus",
+   "source": "Britannica, 'Gersonides'",
+   "note": "Gersonides <- Aristotle"
+  },
+  {
+   "from": "Q9045",
+   "to": "aug:vedas",
+   "confidence": "consensus",
+   "source": "Britannica, 'Chanakya'",
+   "note": "Chanakya <- Vedic dandaniti (statecraft tradition)"
+  },
+  {
+   "from": "Q233340",
+   "to": "Q9438",
+   "confidence": "consensus",
+   "source": "Britannica, 'Matteo Ricci'",
+   "note": "Matteo Ricci <- Aquinas (Thomist scholastic training as a Jesuit)"
+  },
+  {
+   "from": "Q42063",
+   "to": "Q9441",
+   "confidence": "consensus",
+   "source": "Britannica, 'Xuanzang'",
+   "note": "Xuanzang <- the Buddha (pilgrim seeking authentic Mahayana sources)"
+  },
+  {
+   "from": "Q83322",
+   "to": "aug:upanishads",
+   "confidence": "contested",
+   "source": "Britannica, 'Guru Nanak'",
+   "note": "Guru Nanak <- Vedantic/Sant nondual devotion (alongside Sufi currents)"
+  }
+ ]
+}
