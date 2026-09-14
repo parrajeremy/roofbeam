@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Musings — Roofbeam</title>
+<meta name="description" content="Notes I'm thinking through, published as I go.">
+<link rel="canonical" href="https://roofbeam.net/musings/">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#f6f3ec; --ink:#23201b; --muted:#6b6459; --line:#e2dccf; --accent:#b4531f; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg:#17150f; --ink:#ece7db; --muted:#a49b89; --line:#322d23; --accent:#e08a4e; } }
+:root[data-theme="dark"] { --bg:#17150f; --ink:#ece7db; --muted:#a49b89; --line:#322d23; --accent:#e08a4e; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); line-height:1.65;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif; }
+a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+header { border-bottom:1px solid var(--line); }
+.nav { display:flex; justify-content:space-between; align-items:baseline;
+  padding:16px 24px; max-width:760px; margin:0 auto; }
+.brand { font-family:Fraunces,Georgia,serif; font-weight:600; font-size:1.1rem; color:var(--ink); }
+.brand span { color:var(--accent); }
+.nav a.link { color:var(--muted); font-size:.9rem; margin-left:20px; }
+main { max-width:760px; margin:0 auto; padding:56px 24px 96px; }
+h1 { font-family:Fraunces,Georgia,serif; font-weight:600; font-size:clamp(2rem,5vw,2.6rem);
+  letter-spacing:-.02em; margin:0 0 10px; }
+.lede { color:var(--muted); max-width:48ch; margin:0 0 44px; }
+ul { list-style:none; padding:0; margin:0; max-width:46em; }
+li { border-bottom:1px solid var(--line); padding:20px 0; }
+li a.t { font-family:Fraunces,Georgia,serif; font-size:1.25rem; font-weight:600; color:var(--ink); }
+li a.t:hover { color:var(--accent); text-decoration:none; }
+li .d { color:var(--muted); font-size:.86rem; margin-top:4px; }
+li .s { color:var(--muted); font-size:.98rem; margin-top:8px; }
+.empty { color:var(--muted); }
+</style>
+</head>
+<body>
+<header><nav class="nav">
+  <a class="brand" href="/">Roof<span>beam</span></a>
+  <span><a class="link" href="/#projects">Projects</a><a class="link" href="/">Home</a></span>
+</nav></header>
+<main>
+  <h1>Musings</h1>
+  <p class="lede">Notes I&rsquo;m thinking through, published as I go. Not finished positions &mdash; working thoughts.</p>
+  <ul>
+    <li class="empty">Nothing published yet.</li>
+  </ul>
+</main>
+</body>
+</html>

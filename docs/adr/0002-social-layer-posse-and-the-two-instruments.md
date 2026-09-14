@@ -1,6 +1,6 @@
 # ADR-0002 — The social layer: POSSE, two instruments, and a prediction log instead of KPIs
 
-- **Status:** proposed — the shape is settled, three items marked ⛔ are Jeremy's to close before building
+- **Status:** proposed. **#3 (sequence) closed 2026-09-10** — Facebook first, then narrowed by the platform correction below to *Facebook for distribution, roofbeam.net for response*. **#1 (consent posture) is now moot for Facebook** (nothing is importable) and applies only to genuinely importable sources; for **native** comments there is a moment of agreement, so it does not block them. **#2 (what JENI may optimise) is still open.**
 - **Proposed:** 2026-09-10
 - **Extends:** [ADR-0001](0001-workshop-architecture.md) — same models, same governing rule. **Not a new system.**
 - **Vault reasoning:** `Builder Vault/Efforts/Roofbeam/areas/Workshop Architecture.md` (§ *The social layer*, § *The 2026-09-09 22:52 memo*)
@@ -81,13 +81,29 @@ Person             + relation (circle|world)        # ← the fork from §2
 |---|---|---|---|
 | **Bluesky** (AT Proto) | ✅ free, open | ✅ full, incl. firehose | ✅ |
 | **Mastodon** (ActivityPub) | ✅ free, open | ✅ full | ✅ |
-| **Facebook** | ✅ **Page only** — personal profiles have no publishing API | ✅ comments + webhooks, on a Page | ❌ |
+| **Facebook** | ✅ **Page only** — personal profiles have no publishing API | ✅ comments on a Page — by **polling** in Development mode; **webhooks need Advanced Access** (see § Sequencing) | ❌ |
 | **Threads** | ✅ | ✅ replies + insights | ❌ |
 | **Instagram** | ✅ Business/Creator linked to a Page | ✅ comments + webhooks | ❌ |
 | **LinkedIn** | ✅ personal (`w_member_social`) | ❌ partner-gated | ❌ no API at all |
 | **X** | ✅ | 💰 paid tiers | ❌ |
 
-**Browser automation is rejected** for LinkedIn / Facebook / Instagram: it breaches ToS and gets accounts restricted, and LinkedIn detects and litigates. Not worth Jeremy's real accounts. The sanctioned path for his own data on closed platforms is **periodic export** (LinkedIn archive, Facebook DYI, Instagram export) — complete, legitimate, not real-time, and adequate for a cadence measured in weeks.
+**Browser automation is rejected** for LinkedIn / Facebook / Instagram: it breaches ToS and gets accounts restricted, and LinkedIn detects and litigates. Not worth Jeremy's real accounts.
+
+> ### ⚠️ CORRECTION 2026-09-10 — the export path does NOT carry responses
+>
+> This ADR said the sanctioned path for closed platforms is **periodic export**, "complete, legitimate, not real-time, and adequate for a cadence measured in weeks." **The first half is right and the last clause is wrong**, and the error matters because the whole point of the exercise is bringing responses home.
+>
+> A Facebook DYI export contains **his posts and the comments *he* wrote**. It does **not** contain comments *other people* wrote on his posts. Meta's stated reason is that those comments *belong to the people who wrote them*.
+>
+> For Jeremy's **private profile**: personal-profile *publishing* died with `publish_actions` in 2018 and has not returned; the **Groups API was retired outright in April 2024** and removed from every Graph version, so a private group is not a way around it; and export omits exactly the half that matters. Browser automation is the only *unsanctioned* mechanism left and this ADR rejects it — doubly so on a personal account.
+>
+> ⚠️ **ONE SANCTIONED READ PATH IS UNTESTED, and this correction originally overstated the case by saying there was none.** The **`user_posts`** permission is current and not deprecated — *"allows your app to access the posts that a user has made on their timeline."* Whether `GET /me/posts?fields=comments{...}` returns **other people's** comments on those posts is an empirical question the documentation does not settle, and it is cheap to answer: grant `user_posts` to yourself in Meta's own **Graph API Explorer**, run the query, look. Five minutes, Meta's own tool, entirely within terms. **Do that before concluding anything.**
+>
+> Note the constraint that would bite later even if it works: `user_posts`' documented allowed usage is timeline books/albums and parental monitoring. Neither is this. That governs **App Review**, which a Development-mode app used only by Jeremy does not need — but it means the path could not be taken Live without a use case Meta has not sanctioned.
+>
+> **Note what Facebook's reason actually is.** *"They belong to the people who wrote them"* is ⛔ #1's own argument, enforced at the platform level. Facebook is not being obstructive here; it is taking the position this ADR was asking Jeremy to consider. **That makes ⛔ #1 moot for Facebook** — there is nothing to decide a posture about, because there is nothing importable.
+>
+> **This is § The finding, in its sharpest form.** Not "Facebook is slower to wire up" — the earlier objection, which was wrong on the cost — but *Facebook structurally will not return the conversation from the one surface where his circle actually is*, and it will not do so on privacy grounds he would endorse.
 
 ### ⭐ The finding
 
@@ -95,20 +111,37 @@ Person             + relation (circle|world)        # ← the fork from §2
 
 ## Sequencing
 
-1. **OG / Twitter cards / canonical / JSON-LD on the toys.** Blocking everything else — see ADR-0001's known gap. One afternoon.
-2. Three model additions + a post object with a canonical URL to syndicate.
-3. **Bluesky + Mastodon** — free, open, full round trip. **Prove the loop where nothing is gated.**
-4. Facebook Page + Threads + Instagram — one Meta auth, app review.
-5. LinkedIn — post-out only.
-6. X — only if there is a reason to pay.
+*Revised 2026-09-10 after ⛔ #3 closed Facebook-first and the review-cycle objection was found to be wrong.*
 
-⚠️ **Jeremy said "starting with Facebook."** Recorded as a live disagreement about **sequence, not destination**: Facebook needs a Page (his personal profile cannot be wired at all), an app, and a review cycle — slowest path to first light, and the loop cannot be proven there. Bluesky is an afternoon. *"That's where the people I know actually are" is a real reason and the call is his.*
+1. ✅ **OG / Twitter cards / canonical / JSON-LD on the toys.** Blocked everything else — ADR-0001's known gap. **Done 2026-09-10** (`7424542`): generated from a per-toy manifest by `tools/share.py`, with a `verify` mode that fails on drift.
+2. ⭐ **Native comments on roofbeam.net — the circle instrument's real home.** *Revised 2026-09-10 (see the correction above): the circle cannot be instrumented on Facebook at all.* It can be instrumented here. On his own site the moment of agreement **exists**, so `Consent.text_shown` is satisfiable and ⛔ #1 does not block native comments; he owns the corpus (ADR-0001 §3); and `Person.relation = circle` can be set truthfully. No platform can withhold it.
+3. **Facebook = distribution only, by hand.** He posts the link to his own profile himself. No API, no Page, no token, no ToS exposure — and the conversation is invited home by the link, which is what POSSE has always meant. The response half happens at (2), not on Facebook.
+4. Three model additions + a post object with a canonical URL.
+5. **Bluesky + Mastodon** — the only platforms that give the conversation back, so they remain the route to a *wired* loop and to the **world** instrument. A public Roofbeam Page (`tools/posse/facebook.py`, already built) is an option here too, on the same footing: a world surface, not a circle one.
+6. Threads + Instagram — same Meta auth as (2).
+7. LinkedIn — post-out only. X — only if there is a reason to pay.
+
+### ⛔ #3 — DECIDED 2026-09-10: **Facebook first.** Jeremy's call, and the objection to it was partly wrong.
+
+The recommendation above said Facebook needs *"an app review cycle"* and that *"the loop cannot be proven there."* **Verified against Meta's live docs 2026-09-10: that is incorrect**, and the correction removes most of the cost that made Bluesky-first look obvious.
+
+| claim as written | verified 2026-09-10 |
+|---|---|
+| needs an app review cycle | ❌ **No.** *"If your app will only be used by app users who have a role on the app itself, App Review is not required."* An app in **Development mode**, used only by Jeremy, needs none. |
+| (implied) needs Business Verification | ❌ **No.** Business Verification is triggered *by* App Review / Advanced Access. No review → no verification → **no EIN.** Facebook POSSE does not touch the entity gate chain. |
+| the loop cannot be proven there | ❌ **It can.** Publishing to a Page you administer and polling `GET /{post-id}/comments` both work in Development mode. The full round trip is provable. |
+| needs a Page; the personal profile cannot be wired | ✅ **Correct, and unavoidable.** This is the one real cost and it remains. |
+| real-time webhooks | ✅ **Correct** — those *do* need Advanced Access → App Review → Business Verification. **So we skip them and poll.** This ADR sets a cadence measured in weeks; polling is the right instrument at that cadence, not a compromise. |
+
+**What survives of the original recommendation:** Bluesky is still cheaper per unit of first light, and Mastodon/Bluesky still give the conversation back in a way Facebook's terms do not. Those remain reasons to add them. They are no longer reasons to *sequence them first*, because the gap is now a Page and an app rather than a review cycle — and *"that's where the people I know actually are"* is decisive once the cost argument collapses. **The circle is the falsifiable-prediction instrument (§2), and the circle is on Facebook.**
+
+Graph API **v25.0**. Implementation: `tools/posse/facebook.py`. Setup steps that need Jeremy's hands: Builder Vault `Efforts/Roofbeam/Jeremy Errand Sheet.md` § 6.
 
 ## ⛔ Blocking — Jeremy's to close before anything ingests
 
 1. **Consent posture for imported comments.** Pulling someone's Facebook comment into a private corpus is a **privacy act, not a data sync** — they addressed that platform's audience. `Consent.text_shown` cannot be satisfied; there was no moment of agreement. *Candidate, and it is what he already asked for: imported comments are Jeremy-readable only, never republished with attribution, anonymization mandatory rather than optional.*
 2. **What JENI is allowed to optimise.** "When to post" is scheduling; "what to post next" is editorial, and the second is where the governing rule can quietly lose.
-3. **Sequence** — Bluesky-first (recommended) or Facebook-first (his stated preference).
+3. ~~**Sequence** — Bluesky-first (recommended) or Facebook-first (his stated preference).~~ **CLOSED 2026-09-10: Facebook first.** See § Sequencing — the review-cycle objection was factually wrong and has been corrected there.
 
 ## Consequences
 

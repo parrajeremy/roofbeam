@@ -1,0 +1,11 @@
+{
+  "slug": "where-americans-resettle",
+  "title": "Where Americans Resettle",
+  "page_title": "Where Americans Resettle",
+  "tagline": "An interactive map of internal US migration — every line a state- or county-pair where people changed their tax-filing address. The premise: we're immigrants in our own country.",
+  "card_question": "We are immigrants in our own country. Where does everybody go?",
+  "source": "IRS Statistics of Income · county-to-county migration · 2011–12 to 2021–22",
+  "published": true,
+  "created": "2026-09-06",
+  "discussion_prompt": "What did this make you notice about the place you left, or the place you landed?"
+}

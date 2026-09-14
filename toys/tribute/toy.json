@@ -1,0 +1,11 @@
+{
+  "slug": "tribute",
+  "title": "The Tribute",
+  "page_title": "The Tribute — federal tax by place",
+  "tagline": "How much tribute every place in America pays the federal government — individual income tax by state, county and ZIP, and which states give more than they get.",
+  "card_question": "What does your place pay the federal government — and does it get more back than it gives?",
+  "source": "IRS Statistics of Income · TY2022 · total individual tax liability (Form 1040)",
+  "published": false,
+  "created": "2026-09-08",
+  "discussion_prompt": "What did this make you notice about what you owe, or what you are owed?"
+}
