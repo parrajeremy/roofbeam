@@ -83,6 +83,17 @@ canvas.drag{cursor:grabbing}
 .rail{position:absolute;top:var(--s2);left:var(--s2);width:236px;max-width:calc(100% - 20px);display:flex;flex-direction:column;gap:var(--s2);pointer-events:none}
 .rail>.card{pointer-events:auto}
 #controls{padding:var(--s3);display:flex;flex-direction:column;gap:12px}
+.srch{position:relative}
+#search{width:100%;background:var(--paper);border:1px solid var(--panel-edge);border-radius:8px;padding:8px 10px;color:var(--ink);font:inherit;font-size:12.5px}
+#search:focus{outline:none;border-color:var(--accent)}
+#results{position:absolute;left:0;right:0;top:37px;z-index:6;background:var(--panel);border:1px solid var(--panel-edge);border-radius:8px;box-shadow:var(--shadow);overflow:hidden}
+#results:empty{display:none}
+.res{padding:7px 10px;font-size:12px;color:var(--ink-2);cursor:pointer}
+.res+.res{border-top:1px solid var(--panel-edge)}
+.res:hover{background:var(--paper);color:var(--ink)}
+#focusBar{position:absolute;top:var(--s2);left:50%;transform:translateX(-50%);padding:7px 8px 7px 14px;font-size:12.5px;color:var(--ink-2);display:flex;align-items:center;gap:8px;z-index:6}
+#focusBar b{color:var(--ink)}
+#focusX{background:var(--accent);color:#fff;border:none;border-radius:6px;padding:4px 10px;font:inherit;font-size:11.5px;font-weight:600;cursor:pointer}
 .thin{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
 .thin .v{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink);font-variant-numeric:tabular-nums}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:16px;background:transparent;cursor:pointer;margin:0}
@@ -116,11 +127,16 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
   </header>
   <div class="stage" id="stage">
     <canvas id="cv"></canvas>
+    <div class="card" id="focusBar" hidden>Tracing <b class="fname"></b>'s lineage · <button id="focusX">show all</button></div>
     <div class="rail">
       <section class="card" id="controls">
+        <div class="srch">
+          <input id="search" type="text" placeholder="Find a thinker…" autocomplete="off" spellcheck="false">
+          <div id="results"></div>
+        </div>
         <div>
-          <div class="thin"><h2>Prune small branches</h2><span class="v" id="thV">—</span></div>
-          <input type="range" id="thresh" min="1" max="12" value="3" step="1">
+          <div class="thin"><h2>Thinkers shown</h2><span class="v" id="thV">—</span></div>
+          <input type="range" id="thresh" min="50" max="2500" value="200" step="25">
           <div class="drawn" id="drawn">—</div>
         </div>
         <div>
@@ -135,7 +151,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;heigh
       <div class="nm" id="rName">The Tree of Human Thought</div>
       <div class="sub" id="rSub">Hover a thinker</div>
       <div class="meta" id="rMeta"></div>
-      <div class="hint" id="rHint">6,963 thinkers · 6,534 influence links · −3227 to 2001. Documented traditions cluster; cross-tradition bridges are few and real.</div>
+      <div class="hint" id="rHint">Click any thinker to trace their whole lineage · search to jump to one · drag to pan, scroll to zoom.</div>
     </section>
     <div id="tip"></div>
   </div>
@@ -147,9 +163,9 @@ const stage=document.getElementById('stage'), cv=document.getElementById('cv'), 
 const CLADE={philosophy:'#3E77C0',religion:'#9159B8',science:'#12A075',social:'#D3892F',history:'#C15438',scholar:'#7C8A98'};
 const CLADE_LABEL={philosophy:'Philosophy',religion:'Religion / theology',science:'Science / math',social:'Social / political',history:'History',scholar:'Scholarship'};
 let DATA=null, W=0,H=0, DPR=Math.min(2,window.devicePixelRatio||1);
-let thresh=3, authOnly=false, off={}, hoverId=null;
+let authOnly=false, off={}, hoverId=null, focusId=null, focusSet=null, canonN=200;
 let t={k:1,x:0,y:0};              // zoom transform
-let layout=null, qt=null, indeg={}, deg={};
+let layout=null, qt=null, indeg={}, deg={}, parents={}, children={}, ranked=[], canonSet=new Set();
 
 // piecewise historical time -> [0,1]
 const BP=[[-3500,0],[-800,.09],[-300,.18],[100,.28],[600,.37],[1100,.47],[1400,.57],[1600,.67],[1750,.77],[1850,.86],[1920,.93],[1980,.985],[2030,1]];
@@ -160,8 +176,11 @@ const ERAS=[[-3000,'3000 BCE'],[-800,'800 BCE'],[-300,'300 BCE'],[1,'1 CE'],[500
 function size(){const r=stage.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*DPR;cv.height=H*DPR;cv.style.width=W+'px';cv.style.height=H+'px';}
 
 function activeClades(){return Object.keys(CLADE).filter(c=>!off[c]);}
-function visibleNode(q){const n=DATA.nodes[q]; if(!n||n.year==null)return false; if(off[n.clade])return false;
-  if(!authOnly && (deg[q]||0)<thresh)return false; if(authOnly && n.src==='wikidata')return false; return true;}
+function visibleNode(q){const n=DATA.nodes[q]; if(!n||n.year==null)return false;
+  if(focusSet) return focusSet.has(q);
+  if(off[n.clade])return false;
+  if(authOnly) return n.src!=='wikidata';
+  return canonSet.has(q);}
 
 function computeLayout(){
   // x from time; y = clade band with greedy lane packing
@@ -192,12 +211,25 @@ function computeLayout(){
   for(const e of DATA.edges){ const a=byId[e.f], b=byId[e.t]; if(a&&b){ if(authOnly && e.src==='wikidata')continue; edges.push({a,b,src:e.src,conf:e.conf}); } }
   layout={nodes,edges,byId,cw,worldH,bandY};
   qt=d3.quadtree().x(n=>n.x).y(n=>n.y).addAll(nodes);
-  // fit
-  fit();
-  document.getElementById('thV').textContent='deg ≥ '+thresh;
-  document.getElementById('drawn').innerHTML='<b style="color:var(--ink-2)">'+d3.format(',')(nodes.length)+'</b> thinkers · '+d3.format(',')(edges.length)+' links';
+  document.getElementById('thV').textContent = focusSet ? 'lineage' : ('top '+d3.format(',')(canonN));
+  document.getElementById('drawn').innerHTML='<b style="color:var(--ink-2)">'+d3.format(',')(nodes.length)+'</b> shown · '+d3.format(',')(edges.length)+' links';
 }
 function fit(){ const {cw,worldH}=layout; const k=Math.min(W/cw, H/worldH)*0.98; t={k, x:(W-cw*k)/2, y:(H-worldH*k)/2}; }
+function recomputeCanon(){ canonSet=new Set(); for(let i=0;i<Math.min(canonN,ranked.length);i++) canonSet.add(ranked[i]); }
+function fitToNodes(){ const ns=layout.nodes; if(!ns.length){fit();return;} let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;
+  for(const n of ns){ x0=Math.min(x0,n.x-30);x1=Math.max(x1,n.x+150);y0=Math.min(y0,n.y-18);y1=Math.max(y1,n.y+18);}
+  const bw=Math.max(80,x1-x0),bh=Math.max(80,y1-y0); const k=Math.min(W/bw,H/bh,3.2)*0.9;
+  t={k, x:W/2-((x0+x1)/2)*k, y:H/2-((y0+y1)/2)*k}; }
+function apply(){ d3.select(cv).call(zoom.transform, d3.zoomIdentity.translate(t.x,t.y).scale(t.k)); }
+function lineage(q){ const cap=300, set=new Set([q]);
+  let f=[q]; while(f.length&&set.size<cap){ const nf=[]; for(const x of f) for(const p of (parents[x]||[])) if(!set.has(p)&&set.size<cap){set.add(p);nf.push(p);} f=nf; }
+  f=[q]; const ds=new Set([q]); while(f.length&&set.size<cap){ const nf=[]; for(const x of f) for(const c of (children[x]||[])){ if(!ds.has(c)){ds.add(c); if(!set.has(c)&&set.size<cap){set.add(c);nf.push(c);}} } f=nf; }
+  return set; }
+function focus(q){ const n=DATA.nodes[q]; if(!n||n.year==null)return; focusId=q; focusSet=lineage(q); computeLayout(); fitToNodes(); apply(); draw(); updateFocusUI(); }
+function clearFocus(){ focusId=null; focusSet=null; recomputeCanon(); computeLayout(); fit(); apply(); draw(); updateFocusUI(); }
+function updateFocusUI(){ const bar=document.getElementById('focusBar');
+  if(focusId){ bar.hidden=false; bar.querySelector('.fname').textContent=DATA.nodes[focusId].label; }
+  else bar.hidden=true; }
 
 function draw(){
   const cs=getComputedStyle(document.body);
@@ -229,14 +261,15 @@ function draw(){
     ctx.globalAlpha=(hoverId&&hoverId!==n.q)?.45:1; ctx.fill();
     if(authored){ ctx.globalAlpha=1; ctx.lineWidth=1.4/t.k; ctx.strokeStyle=cs.getPropertyValue('--panel'); ctx.stroke(); }
     if(n.q===hoverId){ ctx.globalAlpha=1; ctx.lineWidth=2/t.k; ctx.strokeStyle=cs.getPropertyValue('--ink'); ctx.stroke(); }
+    if(n.q===focusId){ ctx.globalAlpha=1; ctx.lineWidth=2.6/t.k; ctx.strokeStyle=cs.getPropertyValue('--accent'); ctx.stroke(); }
   }
   ctx.globalAlpha=1; ctx.restore();
   // ---- SCREEN SPACE (labels; readable at any zoom) ----
   ctx.font='11px "IBM Plex Mono", monospace'; ctx.textAlign='center'; ctx.fillStyle=cs.getPropertyValue('--ink-3'); ctx.globalAlpha=.6;
   for(const [yr,lab] of ERAS){ const x=(60+tnorm(yr)*(layout.cw-120))*t.k+t.x; if(x>44&&x<W-8) ctx.fillText(lab,x,14); }
   ctx.globalAlpha=1; ctx.textAlign='left'; ctx.font='600 11px Archivo, sans-serif';
-  const placed=[]; const cut=28/t.k;   // fewer labels zoomed out, more as you zoom in
-  const cand=layout.nodes.filter(n=>(indeg[n.q]||0)>=cut||n.q===hoverId)
+  const placed=[]; const cut=focusSet?0:28/t.k;   // in focus mode, label everyone in the lineage
+  const cand=layout.nodes.filter(n=>(indeg[n.q]||0)>=cut||n.q===hoverId||n.q===focusId)
     .sort((a,b)=>((b.q===hoverId?1e9:indeg[b.q]||0)-(a.q===hoverId?1e9:indeg[a.q]||0)));
   for(const n of cand){ const sx=n.x*t.k+t.x, sy=n.y*t.k+t.y; if(sx<-40||sx>W+120||sy<8||sy>H-2)continue;
     const bx=sx+n.r*t.k+3, w=ctx.measureText(n.label).width, box=[bx,sy-8,bx+w,sy+4];
@@ -262,29 +295,47 @@ function onMove(e){ const r=cv.getBoundingClientRect(); const [wx,wy]=screenToWo
       document.getElementById('rHint').textContent='';
     } else { tip.style.opacity=0; document.getElementById('rName').textContent='The Tree of Human Thought';
       document.getElementById('rSub').textContent='Hover a thinker'; document.getElementById('rMeta').innerHTML='';
-      document.getElementById('rHint').textContent='Documented traditions cluster; cross-tradition bridges are few and real.'; }
+      document.getElementById('rHint').textContent='Click any thinker to trace their whole lineage.'; }
   }
 }
 
-const zoom=d3.zoom().scaleExtent([0.15,8]).on('zoom',ev=>{ t={k:ev.transform.k,x:ev.transform.x,y:ev.transform.y}; draw(); });
-function initZoom(){ const sel=d3.select(cv); sel.call(zoom); sel.on('mousedown.c',()=>cv.classList.add('drag')); d3.select(window).on('mouseup.c',()=>cv.classList.remove('drag'));
+let gStart=null, gMoved=false;
+function evPt(se){ const r=cv.getBoundingClientRect(); const p=(se.touches&&se.touches[0])||(se.changedTouches&&se.changedTouches[0])||se; return [p.clientX-r.left, p.clientY-r.top]; }
+const zoom=d3.zoom().scaleExtent([0.15,8])
+  .on('start',ev=>{ if(ev.sourceEvent){ gStart=evPt(ev.sourceEvent); gMoved=false; } })
+  .on('zoom',ev=>{ t={k:ev.transform.k,x:ev.transform.x,y:ev.transform.y}; if(ev.sourceEvent) gMoved=true; draw(); })
+  .on('end',ev=>{ if(ev.sourceEvent && gStart && !gMoved){ const [wx,wy]=screenToWorld(gStart[0],gStart[1]); const n=qt?qt.find(wx,wy,32/t.k):null; if(n)focus(n.q); else if(focusSet)clearFocus(); } gStart=null; });
+function initZoom(){ const sel=d3.select(cv); sel.call(zoom); sel.on('dblclick.zoom', null); sel.on('mousedown.c',()=>cv.classList.add('drag')); d3.select(window).on('mouseup.c',()=>cv.classList.remove('drag'));
   sel.call(zoom.transform, d3.zoomIdentity.translate(t.x,t.y).scale(t.k)); }
 
-function rebuild(){ // recompute degree-based visibility then layout
-  computeLayout(); const sel=d3.select(cv); sel.call(zoom.transform, d3.zoomIdentity.translate(t.x,t.y).scale(t.k)); draw(); }
+function rebuild(){ recomputeCanon(); computeLayout(); apply(); draw(); }
 
 d3.json('tree.json').then(d=>{
   DATA=d;
-  for(const e of d.edges){ indeg[e.t]=(indeg[e.t]||0)+1; deg[e.t]=(deg[e.t]||0)+1; deg[e.f]=(deg[e.f]||0)+1; }
-  // clade legend
+  for(const e of d.edges){ indeg[e.t]=(indeg[e.t]||0)+1; deg[e.t]=(deg[e.t]||0)+1; deg[e.f]=(deg[e.f]||0)+1;
+    (parents[e.f]=parents[e.f]||[]).push(e.t); (children[e.t]=children[e.t]||[]).push(e.f); }
+  ranked=Object.keys(DATA.nodes).filter(q=>DATA.nodes[q].year!=null).sort((a,b)=>(indeg[b]||0)-(indeg[a]||0));
+  recomputeCanon();
   const box=document.getElementById('clades');
   for(const c in CLADE){ box.insertAdjacentHTML('beforeend',`<div class="crow" data-c="${c}"><span class="dot" style="background:${CLADE[c]}"></span>${CLADE_LABEL[c]}</div>`); }
-  box.querySelectorAll('.crow').forEach(el=>el.onclick=()=>{ const c=el.dataset.c; off[c]=!off[c]; el.classList.toggle('off',off[c]); rebuild(); });
-  size(); computeLayout(); initZoom(); draw();
+  box.querySelectorAll('.crow').forEach(el=>el.onclick=()=>{ off[el.dataset.c]=!off[el.dataset.c]; el.classList.toggle('off',off[el.dataset.c]); if(focusSet)clearFocus(); else rebuild(); });
+  size(); computeLayout(); fit(); initZoom(); draw();
   cv.addEventListener('mousemove',onMove); cv.addEventListener('mouseleave',()=>{hoverId=null;tip.style.opacity=0;draw();});
-  document.getElementById('thresh').oninput=e=>{thresh=+e.target.value;rebuild();};
-  document.getElementById('authOnly').onchange=e=>{authOnly=e.target.checked;rebuild();};
-  window.addEventListener('resize',()=>{size();fit();d3.select(cv).call(zoom.transform,d3.zoomIdentity.translate(t.x,t.y).scale(t.k));draw();});
+  // click-to-focus is handled inside the d3.zoom start/end handlers (a gesture with no movement = a click)
+  document.getElementById('focusX').onclick=clearFocus;
+  window.addEventListener('keydown',e=>{ if(e.key==='Escape'&&focusSet)clearFocus(); });
+  document.getElementById('thresh').oninput=e=>{ canonN=+e.target.value; if(focusSet)clearFocus(); else rebuild(); };
+  document.getElementById('authOnly').onchange=e=>{authOnly=e.target.checked; if(focusSet)clearFocus(); else rebuild();};
+  // search
+  const se=document.getElementById('search'), re=document.getElementById('results');
+  se.oninput=()=>{ const q=se.value.trim().toLowerCase(); re.innerHTML=''; if(q.length<2)return;
+    const m=[]; for(const id in DATA.nodes){ const n=DATA.nodes[id]; if(n.year!=null&&(n.label||'').toLowerCase().includes(q)) m.push({id,n,ind:indeg[id]||0}); }
+    m.sort((a,b)=>b.ind-a.ind);
+    m.slice(0,7).forEach(x=>{ const el=document.createElement('div'); el.className='res'; el.textContent=x.n.label+' · '+(x.n.year<0?(-x.n.year)+' BCE':x.n.year);
+      el.onclick=()=>{ se.value=x.n.label; re.innerHTML=''; focus(x.id); }; re.appendChild(el); }); };
+  se.onkeydown=e=>{ if(e.key==='Enter'){ const f=re.querySelector('.res'); if(f)f.click(); } };
+  document.addEventListener('click',e=>{ if(!se.contains(e.target)&&!re.contains(e.target)) re.innerHTML=''; });
+  window.addEventListener('resize',()=>{size(); if(focusSet)fitToNodes(); else fit(); apply(); draw();});
 }).catch(err=>{document.getElementById('rHint').textContent='Failed to load: '+err;});
 })();
 </script>
