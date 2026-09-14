@@ -129,6 +129,11 @@
 
     .placeholder { color: var(--muted); font-size: .82rem; font-style: italic; }
 
+    /* Support link — deliberately quiet. It sits in the footer at the same
+       weight as the colophon, because "if you want" is the whole register. */
+    footer a.support { color: var(--muted); border-bottom: 1px solid var(--line); }
+    footer a.support:hover { color: var(--accent); border-bottom-color: var(--accent); text-decoration: none; }
+
     /* Say hello form */
     .hello-form { max-width: 560px; }
     .frow { display: flex; gap: 12px; margin-bottom: 12px; }
@@ -258,7 +263,7 @@
   <footer>
     <div class="wrap">
       <span>© <span id="yr"></span> Roofbeam LLC</span>
-      <span>Built in the open · roofbeam.net</span>
+      <span>Built in the open &middot; <a class="support" href="https://github.com/sponsors/parrajeremy" target="_blank" rel="noopener noreferrer">support this if you want</a></span>
     </div>
   </footer>
   <script>
